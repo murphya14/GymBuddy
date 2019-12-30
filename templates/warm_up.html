@@ -1,15 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    {% for warm_up in week1_day_1%}
-    {{warm_up.warm_up}}
-    {{warm_up.warm_up_description}}
+{% extends 'base.html'%}
+{% block content %}
+    {% for warm_up in week1_day1%}
+    {{week1_day1.warm_up}}
+    {{week1_day1.warm_up_description}}
     {% endfor %}
-</body>
-</html>
+
+    <ul class="collapsible">
+    
+    <li>
+      <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+  </ul>
+
+{% endblock %}
