@@ -5,7 +5,7 @@ from bson.objectid import ObjectId
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'gym_buddy'
-app.config["MONGO_URI"] = 'mongodb+srv://murphya14:Quality@2@gymbuddy-asswz.mongodb.net/gym_buddy?retryWrites=true&w=majority'
+app.config["MONGO_URI"] = 'mongodb+srv://murphya14:Quality%42@gymbuddy-asswz.mongodb.net/gym_buddy?retryWrites=true&w=majority'
 
 mongo = PyMongo(app)
 
@@ -21,8 +21,9 @@ def get_tasks():
 def add_excercise():
     return render_template("addexcercise.html")
 
+print(os.environ.get('PORT'))
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
-            port=int(os.environ.get('PORT')),
+            port=int(os.environ.get('PORT', 8000)),
             debug=True)
