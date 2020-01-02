@@ -2,10 +2,10 @@
 {% block content %} 
 
     <ul class="collapsible">
-    {% for warm_up in week1_day1%}
+    {% for warm_up in gym_buddy%}
     <li>
-      <div class="collapsible-header"> <i class="material-icons">fitness_center</i>{{week1_day1.warm_up}}</div>
-      <div class="collapsible-body"><span> {{week1_day1.warm_up_description}}</span></div>
+      <div class="collapsible-header"> <i class="material-icons">fitness_center</i>{{gym_buddy.warm_up}}</div>
+      <div class="collapsible-body"><span> {{gym_buddy.warm_up_description}}</span></div>
     </li>
     {% endfor %}
   </ul>
