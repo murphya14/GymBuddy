@@ -5,8 +5,7 @@ from bson.objectid import ObjectId
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'gym_buddy'
-app.config["MONGO_URI"] = 'mongodb+srv://murphya14:Quality%42@gymbuddy-asswz.mongodb.net/gym_buddy?retryWrites=true&w=majority'
-
+app.config["MONGO_URI"] = 'mongodb+srv://murphya14:gymbuddy@gymbuddy-asswz.mongodb.net/week1_day1?retryWrites=true&w=majority'
 mongo = PyMongo(app)
 
 
@@ -15,7 +14,7 @@ mongo = PyMongo(app)
 @app.route('/get_warm_up')
 def get_tasks():
     return render_template("warm_up.html", 
-    warmup=mongo.db.week1_day1.find())
+    warm_up=mongo.db.week1_day1.find())
 
 
 @app.route('/add_excercise')
