@@ -15,7 +15,8 @@ mongo = PyMongo(app)
 @app.route('/get_warm_up')
 def get_tasks():
     return render_template("warm_up.html", 
-    warm_up=mongo.db.week1_day1.warm_up.find())
+    warmup=mongo.db.week1_day1.find())
+
 
 @app.route('/add_excercise')
 def add_excercise():
