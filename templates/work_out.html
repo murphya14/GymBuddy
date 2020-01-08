@@ -4,7 +4,11 @@
     <ul class="collapsible popout">
     {% for workout in work_out %}
     <li>
-      <div class="collapsible-header"> <i class="material-icons">fitness_center</i>{{workout.warm_up}}</div>
+      <div class="collapsible-header"> 
+      <div class=col-3>
+      <a class="waves-effect waves-light btn orange">Completed</a>
+      </div>
+      <i class="material-icons">fitness_center</i>{{workout.warm_up}}</div>
       <div class="collapsible-body"><span> {{workout.warm_up_description}}</span></div>
     </li>
     <li>

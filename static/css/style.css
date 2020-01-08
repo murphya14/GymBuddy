@@ -1,2 +1,15 @@
 body{
     margin : 30px}
+
+.btn{
+    margin: 5px;
+    color: black;
+    font-weight:700;
+    border-radius: 100px; 
+    float:right;
+}
+
+.collapsible-header{margin:30px;
+}
+
+
