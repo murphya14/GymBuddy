@@ -20,7 +20,7 @@ def get_warm_up():
 @app.route('/add_excercise')
 def add_excercise():
     return render_template("addexcercise.html",
-    add=mongo.db.category.find())
+    categories=mongo.db.category.find())
 
 print(os.environ.get('PORT'))
 
