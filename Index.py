@@ -12,14 +12,15 @@ mongo = PyMongo(app)
 @app.route('/')
 
 @app.route('/get_warm_up')
-def get_tasks():
+def get_warm_up():
     return render_template("warm_up.html", 
     warm_up=mongo.db.week1_day1.find())
 
 
 @app.route('/add_excercise')
 def add_excercise():
-    return render_template("addexcercise.html")
+    return render_template("addexcercise.html",
+    add=mongo.db.category.find())
 
 print(os.environ.get('PORT'))
 
