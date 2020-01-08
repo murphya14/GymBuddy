@@ -47,6 +47,9 @@
       <div class=col-3>
       <a class="waves-effect waves-light btn orange">Completed</a>
       </div>
+        <div class=col-3>
+      <a class="waves-effect waves-light btn yellow">Weight</a>
+      </div>
        <i class="material-icons">fitness_center</i>{{workout.main}}</div>
       <div class="collapsible-body"><span> {{workout.main_description}}</span></div>
 </li>
@@ -55,6 +58,9 @@
         <div class=col-3>
       <a class="waves-effect waves-light btn orange">Completed</a>
       </div>
+              <div class=col-3>
+      <a class="waves-effect waves-light btn yellow">Weight</a>
+      </div>
         <i class="material-icons">fitness_center</i>{{workout.main_1}}</div>
       <div class="collapsible-body"><span> {{workout.main_1_description}}</span></div>
 </li>
@@ -62,6 +68,9 @@
         <div class="collapsible-header"> 
         <div class=col-3>
       <a class="waves-effect waves-light btn orange">Completed</a>
+      </div>
+              <div class=col-3>
+      <a class="waves-effect waves-light btn yellow">Weight</a>
       </div>
         <i class="material-icons">fitness_center</i>{{workout.main_2}}</div>
       <div class="collapsible-body"><span> {{workout.main_2_description}}</span></div>
@@ -177,5 +186,16 @@
     </li>
     {% endfor %}
   </ul>
+
+  <div class="row">
+    <form class="col s12">
+<div class="row">
+          <div class="input-field col s12">
+            <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+            <label for="textarea2">Comments on your workout</label>
+          </div>
+        </div>
+      </form>
+    </div>
 
 {% endblock %}
