@@ -11,16 +11,23 @@ mongo = PyMongo(app)
 
 @app.route('/')
 
-@app.route('/get_warm_up')
-def get_warm_up():
-    return render_template("warm_up.html", 
-    warm_up=mongo.db.week1_day1.find())
+@app.route('/get_work_out')
+def get_work_out():
+    return render_template("work_out.html", 
+    work_out=mongo.db.week1_day1.find())
 
 
 @app.route('/add_excercise')
 def add_excercise():
     return render_template("addexcercise.html",
     categories=mongo.db.category.find())
+
+
+@app.route('/insert_excercise', methods=['POST'])
+def insert_excercise():
+    workout=mongo.db.week1_day1
+    workout.insert_one(request.form.to_dict())
+    return redirect(url_for('get_work_out'))
 
 print(os.environ.get('PORT'))
 
