@@ -48,7 +48,10 @@
       <a class="waves-effect waves-light btn orange">Completed</a>
       </div>
         <div class=col-3>
-      <a href="{{url_for('edit_weight', week1_day1_id=work_out._id)}}"  class="waves-effect waves-light btn yellow">Weight</a>
+
+        <!-- There was an underline -->
+        <!-- How is edit weight linked to a workout? -->
+      <a href="{{url_for('insert_weight', week1_day1_id=workout._id)}}"  class="waves-effect waves-light btn yellow">Weight</a>
       </div>
        <i class="material-icons">fitness_center</i>{{workout.main}}</div>
       <div class="collapsible-body"><span> {{workout.main_description}}</span></div>

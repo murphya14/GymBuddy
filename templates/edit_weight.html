@@ -1,16 +1,16 @@
 {% extends 'base.html'%}
 {% block content %} 
 
-<h3>How heavy coould you go?</h3>
+<h3>How heavy could you go?</h3>
 
   <div class="row">
-    <form action="{{ url_for('update_weight', week1_day1_id=the_weight._id) }}" method="POST" class="col s12">
+    <form action="" method="POST" class="col s12">
       <div class="row">
   <div class="input-field col s3">
     <select id="category" name="category_name">
       <option value="" disabled selected>Excercise Category</option>
       {% for cat in categories %}
-        {% if cat.category_name == week1_day1.category %}
+        {% if cat.category_name == workout.category %}
         <option value="{{cat.category}}">{{cat.category}}</option>
         {% else %}
         {% endif %}
@@ -20,7 +20,7 @@
 
 <div class="row">
         <div class="input-field col s3">
-          <input id="excercise_name" name="excercise" type="text" class="validate" value="week1_day1.main">
+          <input id="excercise_name" name="excercise" type="text" class="validate" value="{{the_weight.main}}">
           <label for="add_box">Excercise</label>
         </div>
         <div class="input-field col s3">
