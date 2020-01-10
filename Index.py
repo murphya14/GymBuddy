@@ -16,12 +16,13 @@ def get_work_out():
     return render_template("work_out.html", 
     work_out=mongo.db.week1_day1.find())
 
+# Catagories - Names, about, etc.
+
 
 @app.route('/add_excercise')
 def add_excercise():
     return render_template("addexcercise.html",
     categories=mongo.db.category.find())
-
 
 @app.route('/insert_excercise', methods=['POST'])
 def insert_excercise():
@@ -29,20 +30,43 @@ def insert_excercise():
     workout.insert_one(request.form.to_dict())
     return redirect(url_for('get_work_out'))
 
-@app.route('/edit_weight/<week1_day1_id>' )
-def insert_weight(week1_day1_id):
+@app.route('/edit_excercise/<week1_day1_id>' )
+def edit_excercise(week1_day1_id):
     the_weight =  mongo.db.week1_day1.find_one({"_id": ObjectId(week1_day1_id)})
     return render_template('edit_weight.html', weight=the_weight)
 
-
-@app.route('/update_weight/<week1_day1_id>', methods=["POST"])
-def update_weight(week1_day1_id):
+@app.route('/update_excercise/<week1_day1_id>', methods=["POST"])
+def update_excercise(week1_day1_id):
     workout = mongo.db.week1_day1
     workout.update( {'_id': ObjectId(week1_day1_id)},
     {
          'main_weight':request.form.get('main_weight')
     })
     return redirect(url_for('work_out'))
+
+
+#  This is the USER
+
+# name, week1_day1, weight
+
+# def addUser  - GET and POST
+
+
+@app.route('/add_user')
+def add_user():
+    return render_template("signup.html",
+    workout=mongo.db.week1_day1.find())
+
+@app.route('/insert_user', methods=['POST'])
+def insert_user():
+    user=mongo.db.user
+    user.insert_one(request.form.to_dict())
+    return redirect(url_for('get_work_out'))
+
+# def editUser - GET and POST
+
+
+
 
 print(os.environ.get('PORT'))
 
