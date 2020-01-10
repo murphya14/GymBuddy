@@ -1,0 +1,41 @@
+{% extends 'base.html'%}
+{% block content %} 
+
+<h3>User Details</h3>
+
+  <div class="row">
+    <form action="{{ url_for('update_user', user_id=user._id) }}" method="POST" class="col s12">
+        <div class="input-field col s5">
+          <input id="name" name="name" type="text" class="validate" value="{{user.name}}">
+          <label for="add_box">Name</label>
+        </div>
+              <div class="input-field col s5">
+          <input id="name" name="name" type="text" class="validate" value="{{user.weight}}">
+          <label for="add_box">Weight</label>
+        </div>
+
+  <div class="input-field col s3">
+    <select id="workout" name="workout">
+      <option value="{{week1_day1.week}}" disabled selected>Select the week you are on</option>
+      {% for week in week1_day1 %}
+        <option value="{{week.week1_day1}}">{{week.week1_day1}}</option>
+      {% endfor %}
+    </select>
+  </div>
+    <div class="input-field col s3">
+    <select id="workout" name="workout">
+      <option value="{{week1_day1.day}}" disabled selected>Select the day you are on</option>
+      {% for day in week1_day1 %}
+        <option value="{{day.week1_day1}}">{{day.week1_day1}}</option>
+      {% endfor %}
+    </select>
+  </div>
+      <div class="row">
+       <button class="btn waves-effect waves-light" type="submit" name="action">Save
+    <i class="material-icons right">send</i>
+  </button>
+  </div>
+    </form>
+  </div>
+
+{% endblock %} 

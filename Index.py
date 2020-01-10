@@ -65,8 +65,25 @@ def insert_user():
 
 # def editUser - GET and POST
 
+@app.route('/edit_user/<user_id>' )
+def edit_user(user_id):
+    the_user =  mongo.db.user.find_one({"_id": ObjectId(user_id)})
+    the_workout = mongo.db.week1_day1.find()
+    return render_template('edit_user.html', user=the_user, workout=the_workout)
 
+@app.route('/update_user/<user_id>', methods=["POST"])
+def update_user(user_id):
+    user = mongo.db.user
+    user.update( {'_id': ObjectId(user_id)},
+    {
+    'name':request.form.get('name'),
+    'week':request.form.get('week'),
+    'day':request.form.get('day'),
+    'weight':request.form.get('weight'),
+    })
+    return redirect(url_for('work_out'))
 
+# Once complete is selected => bring to edit user page where you can select yourself (the user) - this will keep track of where everyone is in the program
 
 print(os.environ.get('PORT'))
 
