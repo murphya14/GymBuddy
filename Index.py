@@ -14,9 +14,8 @@ mongo = PyMongo(app)
 @app.route('/get_work_out')
 def get_work_out():
     return render_template("work_out.html", 
-    work_out=mongo.db.week1_day1.find())
-
-# Catagories - Names, about, etc.
+    work_out=mongo.db.week1_day1.find(),
+    user = mongo.db.user.find())
 
 
 @app.route('/add_excercise')
