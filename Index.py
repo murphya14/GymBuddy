@@ -32,14 +32,17 @@ def insert_excercise():
 @app.route('/edit_weight/<week1_day1_id>' )
 def insert_weight(week1_day1_id):
     the_weight =  mongo.db.week1_day1.find_one({"_id": ObjectId(week1_day1_id)})
-    all_categories =  mongo.db.category.find()
-    return render_template('edit_weight.html', weight=the_weight,
-                           category=all_categories)
+    return render_template('edit_weight.html', weight=the_weight)
 
 
-
-
-
+@app.route('/update_weight/<week1_day1_id>', methods=["POST"])
+def update_weight(week1_day1_id):
+    workout = mongo.db.week1_day1
+    workout.update( {'_id': ObjectId(week1_day1_id)},
+    {
+         'main_weight':request.form.get('main_weight')
+    })
+    return redirect(url_for('work_out'))
 
 print(os.environ.get('PORT'))
 
