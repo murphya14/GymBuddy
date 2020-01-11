@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+{% block content %} 
+
+<h3>Welcome</h3>
+<div class="row">
+        <form action="{{ url_for('insert_excercise') }}" method="GET"  class="col s12">
+<div class="input-field col s6">
+    <select id="name" name="name">
+      <option value="{{user.name}}" disabled selected>What's your name?</option>
+      {% for user_name in user %}
+        <option value="{{user_name.name}}">{{user_name.name}}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+     <div class=col-3>
+      <a href="{{url_for('add_user')}}" method="POST"  class="waves-effect waves-light btn blue">Sign Up</a>
+      </div>
+
+
+
+
+  {% endblock %}

@@ -10,6 +10,16 @@ mongo = PyMongo(app)
 
 
 @app.route('/')
+def home():
+    return render_template("index.html",
+    user=mongo.db.user.find())
+
+@app.route('/get_user')
+def get_user():
+    return render_template("work_out.html", 
+    work_out=mongo.db.week1_day1.find(),
+    user = mongo.db.user.find())
+
 
 @app.route('/get_work_out')
 def get_work_out():

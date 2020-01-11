@@ -7,6 +7,11 @@
       <a href="{{url_for('add_user')}}" method="POST"  class="waves-effect waves-light btn blue">Sign Up</a>
       </div>
 
+              <div class=col-3>
+      <a href="{{url_for('edit_user', user_id=user._id)}}" method="POST"  class="waves-effect waves-light btn blue">Edit User</a>
+      </div>
+
+
     <ul class="collapsible popout">
     {% for workout in work_out %}
     <li>
