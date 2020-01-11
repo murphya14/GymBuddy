@@ -54,7 +54,13 @@ def update_excercise(week1_day1_id):
 @app.route('/add_user')
 def add_user():
     return render_template("signup.html",
-    workout=mongo.db.week1_day1.find())
+    workout=mongo.db.week1_day1.find(),
+    user=mongo.db.user.find(),
+    workout_day=mongo.db.week1_day1.day.find(),
+    workout_week=mongo.db.week1_day1.week.find(),
+    user_day=mongo.db.user.day.find(),
+    user_week=mongo.db.user.week.find())
+
 
 @app.route('/insert_user', methods=['POST'])
 def insert_user():

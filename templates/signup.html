@@ -15,6 +15,24 @@
           <label for="fitness_center">Weight</label>
         </div>
       </div>
+
+<div class="input-field col s3">
+    <select id="workout" name="workout">
+      <option value="{{workout_week==1}}" disabled selected>Select the week you are on</option>
+      {% for week in workout %}
+        <option value="{{workout_week}}">{{workout_week}}</option>
+      {% endfor %}
+    </select>
+  </div>
+    <div class="input-field col s3">
+    <select id="workout" name="workout">
+      <option value="{{workout_day}}" disabled selected>Select the day you are on</option>
+      {% for day in workout %}
+        <option value="{{workout_day}}">{{workout_day}}</option>
+      {% endfor %}
+    </select>
+  </div>
+
       <div class="row">
        <button class="btn waves-effect waves-light" type="submit" name="action">ADD USER
     <i class="material-icons right">send</i>
