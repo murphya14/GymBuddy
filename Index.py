@@ -105,9 +105,10 @@ def insert_user():
 @app.route('/edit_user/<user_id>' )
 def edit_user(user_id):
     user_name = request.form.get("name") 
-    user = mongo.db.user.find_one({'name': user_name})["_id"]
+    user_id= mongo.db.user.find_one({'name': user_name})["_id"]
+    the_user =  mongo.db.user.find_one({"_id": ObjectId(user_id)})
     the_workout = mongo.db.week1_day1.find()
-    return render_template('edit_user.html', user=user, workout=the_workout)
+    return render_template('edit_user.html', user=the_user, workout=the_workout)
 
 @app.route('/update_user/<user_id>', methods=["POST"])
 def update_user(user_id):
@@ -117,7 +118,6 @@ def update_user(user_id):
     {
     'name':request.form.get('name'),
     'week':request.form.get('week'),
-    'day':request.form.get('day'),
     'weight':request.form.get('weight'),
     })
     return redirect(url_for('work_out'))
