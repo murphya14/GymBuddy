@@ -101,20 +101,20 @@ def insert_user():
 @app.route('/edit_user/<user_name>' )
 def edit_user(user_name):
     user_id= mongo.db.user.find_one({'name': user_name})["_id"]
-    print(user_name)
+    user =  mongo.db.user.find_one({"_id": ObjectId(user_id)})
     the_workout = mongo.db.week1_day1.find()
-    return render_template('edit_user.html', user=user_id, workout=the_workout)
+    return render_template('edit_user.html', user=user, workout=the_workout)
 
 @app.route('/update_user/<user>', methods=["POST"])
 def update_user(user):
-    user =  mongo.db.user.find_one({"_id": ObjectId(user)})
-    user.update( {'_id': ObjectId(user)},
+    users = mongo.db.user
+    users.update( {'_id': ObjectId(user)},
     {
     'name':request.form.get('name'),
     'week':request.form.get('week'),
     'weight':request.form.get('weight'),
     })
-    return redirect(url_for('work_out'))
+    return redirect(url_for('get_work_out'))
 
 # Once complete is selected => bring to edit user page where you can select yourself (the user) - this will keep track of where everyone is in the program
 
