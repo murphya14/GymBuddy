@@ -102,19 +102,18 @@ def insert_user():
 
 # def editUser - GET and POST
 
-@app.route('/edit_user/<user_id>' )
-def edit_user(user_id):
-    user_name = request.form.get("name") 
+@app.route('/edit_user/<user_name>' )
+def edit_user(user_name):
     user_id= mongo.db.user.find_one({'name': user_name})["_id"]
-    the_user =  mongo.db.user.find_one({"_id": ObjectId(user_id)})
+    print(user_name)
     the_workout = mongo.db.week1_day1.find()
-    return render_template('edit_user.html', user=the_user, workout=the_workout)
+    return render_template('edit_user.html', user=user_id, workout=the_workout)
 
-@app.route('/update_user/<user_id>', methods=["POST"])
-def update_user(user_id):
+@app.route('/update_user/<user>', methods=["POST"])
+def update_user(user):
     user_name = request.form.get("name") 
     user = mongo.db.user.find_one({'name': user_name})["_id"]
-    user.update( {'_id': ObjectId(user_id)},
+    user.update( {'_id': ObjectId(user)},
     {
     'name':request.form.get('name'),
     'week':request.form.get('week'),
