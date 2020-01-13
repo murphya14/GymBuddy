@@ -1,31 +1,52 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, session, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
 app = Flask(__name__)
+app.secret = "randomstring123" #change this
 app.config["MONGO_DBNAME"] = 'gym_buddy'
 app.config["MONGO_URI"] = 'mongodb+srv://murphya14:gymbuddy@gymbuddy-asswz.mongodb.net/gym_buddy?retryWrites=true&w=majority'
 mongo = PyMongo(app)
+comment=[] #for add comment (need to make function)
 
-
-@app.route('/')
+@app.route('/', methods=["GET"])
 def home():
     return render_template("index.html",
     user=mongo.db.user.find())
 
-@app.route('/get_user')
-def get_user():
-    return render_template("work_out.html", 
-    work_out=mongo.db.week1_day1.find(),
-    user = mongo.db.user.find())
+@app.route('/get_user/<id>', methods=["GET", "POST"])
+def get_user(id):
+    ''' Function gets the user ID and name '''
+    user = mongo.db.user.find_one({'_id': ObjectId(id)})
+    work_out=mongo.db.week1_day1.find()
+    return render_template("work_out.html", user=user, work_out=work_out)
+    
 
 
 @app.route('/get_work_out')
 def get_work_out():
-    return render_template("work_out.html", 
-    work_out=mongo.db.week1_day1.find(),
-    user = mongo.db.user.find())
+    if 'logged' in session:
+        current_user = session['name']
+        flash('Hi "' + current_user + '". Welcome back! ' +
+                'Here is your current workout' , 'success')
+
+        #find the user 
+        find_user = mongo.db.users.find_one({'name': current_user})
+        
+        workout = mongo.db.workout.find({'name': current_user})
+        count = mongo.db.workout.count_documents({'name': current_user})
+
+
+        return render_template("work_out.html", 
+        work_out=workout,
+        user = find_user,
+        count=count)
+
+    else:
+            # if user is not created
+            flash('You need to be logged in to see your workout', 'warning')
+            return redirect(url_for('signup'))
 
 
 @app.route('/add_excercise')
