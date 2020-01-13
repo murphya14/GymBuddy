@@ -37,7 +37,8 @@ def get_work_out():
         #find the user
         user_name = request.form.get("name") 
         user_workout = request.form.get("week") 
-        user = mongo.db.user.find_one({'name': user_name})["_id"]
+        user_id = mongo.db.user.find_one({'name': user_name})["_id"]
+        user =  mongo.db.user.find_one({"_id": ObjectId(user_id)})
         workout = mongo.db.workout.find({'week': user_workout})
         return render_template("work_out.html", 
         user_workout=user_workout,
@@ -108,7 +109,7 @@ def edit_user(user_name):
 @app.route('/update_user/<user>', methods=["POST"])
 def update_user(user):
     users = mongo.db.user
-    users.update( {'_id': ObjectId(user)},
+    users.update(user, #is this already an object? Just put in user? 
     {
     'name':request.form.get('name'),
     'week':request.form.get('week'),
