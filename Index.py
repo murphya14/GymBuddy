@@ -4,7 +4,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
 app = Flask(__name__)
-app.secret = "randomstring123" #change this
+app.secret_key = "super secret key" #change this
 app.config["MONGO_DBNAME"] = 'gym_buddy'
 app.config["MONGO_URI"] = 'mongodb+srv://murphya14:gymbuddy@gymbuddy-asswz.mongodb.net/gym_buddy?retryWrites=true&w=majority'
 mongo = PyMongo(app)
@@ -23,7 +23,7 @@ def get_user():
     # user = mongo.db.user.find_one({'_id': ObjectId(id)}) # this one doesn't print anything
     print(user) # print result in terminal to see which _id is returned
     work_out=mongo.db.week1_day1.find()
-    return render_template("work_out.html", user=user, work_out=work_out)
+    return render_template("work_out.html", user_name=user_name, user=user, work_out=work_out)
     
 
 
@@ -34,8 +34,10 @@ def get_work_out():
         flash('Hi "' + current_user + '". Welcome back! ' +
                 'Here is your current workout' , 'success')
 
-        #find the user 
-        find_user = mongo.db.users.find_one({'name': current_user})
+        #find the user
+        user_name = request.form.get("name") 
+        user = mongo.db.user.find_one({'name': user_name})["_id"]
+        
         
         workout = mongo.db.workout.find({'name': current_user})
         count = mongo.db.workout.count_documents({'name': current_user})
@@ -43,7 +45,7 @@ def get_work_out():
 
         return render_template("work_out.html", 
         work_out=workout,
-        user = find_user,
+        user = user,
         count=count)
 
     else:
@@ -102,13 +104,15 @@ def insert_user():
 
 @app.route('/edit_user/<user_id>' )
 def edit_user(user_id):
-    the_user =  mongo.db.user.find_one({"_id": ObjectId(user_id)})
+    user_name = request.form.get("name") 
+    user = mongo.db.user.find_one({'name': user_name})["_id"]
     the_workout = mongo.db.week1_day1.find()
-    return render_template('edit_user.html', user=the_user, workout=the_workout)
+    return render_template('edit_user.html', user=user, workout=the_workout)
 
 @app.route('/update_user/<user_id>', methods=["POST"])
 def update_user(user_id):
-    user = mongo.db.user
+    user_name = request.form.get("name") 
+    user = mongo.db.user.find_one({'name': user_name})["_id"]
     user.update( {'_id': ObjectId(user_id)},
     {
     'name':request.form.get('name'),
