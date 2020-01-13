@@ -36,17 +36,13 @@ def get_work_out():
 
         #find the user
         user_name = request.form.get("name") 
+        user_workout = request.form.get("week") 
         user = mongo.db.user.find_one({'name': user_name})["_id"]
-        
-        
-        workout = mongo.db.workout.find({'name': current_user})
-        count = mongo.db.workout.count_documents({'name': current_user})
-
-
+        workout = mongo.db.workout.find({'week': user_workout})
         return render_template("work_out.html", 
-        work_out=workout,
+        user_workout=user_workout,
         user = user,
-        count=count)
+        workout=workout)
 
     else:
             # if user is not created
@@ -111,8 +107,7 @@ def edit_user(user_name):
 
 @app.route('/update_user/<user>', methods=["POST"])
 def update_user(user):
-    user_name = request.form.get("name") 
-    user = mongo.db.user.find_one({'name': user_name})["_id"]
+    user =  mongo.db.user.find_one({"_id": ObjectId(user)})
     user.update( {'_id': ObjectId(user)},
     {
     'name':request.form.get('name'),
