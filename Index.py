@@ -15,10 +15,13 @@ def home():
     return render_template("index.html",
     user=mongo.db.user.find())
 
-@app.route('/get_user/<id>', methods=["GET", "POST"])
-def get_user(id):
+@app.route('/get_user', methods=["GET", "POST"])
+def get_user():
     ''' Function gets the user ID and name '''
-    user = mongo.db.user.find_one({'_id': ObjectId(id)})
+    user_name = request.form.get("name")
+    user = mongo.db.user.find_one({'name': user_name})["_id"] # find by form 'name', and get the ["_id"] from db
+    # user = mongo.db.user.find_one({'_id': ObjectId(id)}) # this one doesn't print anything
+    print(user) # print result in terminal to see which _id is returned
     work_out=mongo.db.week1_day1.find()
     return render_template("work_out.html", user=user, work_out=work_out)
     

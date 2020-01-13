@@ -1,26 +1,27 @@
 {% extends 'base.html'%}
-{% block content %} 
+{% block content %}
 
 <h3>Welcome</h3>
 
-              <div class=col-3>
-      <a href="{{url_for('get_user', id=user._id)}}" method="POST"  class="waves-effect waves-light btn blue">Find your workout</a>
-      </div>
+<div class="row">
+	<form action="{{ url_for('get_user') }}" method="POST" class="col s12">
+		<div class=col-3>
+			<button class="waves-effect waves-light btn blue">Find your workout</button>
+		</div>
 
-<div class="input-field col s3">
-    <select id="name" name="name">
-      <option value="{{user.name}}" disabled selected>What's your name?</option>
-      {% for user_name in user %}
-        <option value="{{user_name.name}}">{{user_name.name}}</option>
-      {% endfor %}
-    </select>
-  </div>
+		<div class="input-field col s3">
+			<select id="name" name="name">
+                <option value="{{user.name}}" disabled selected>What's your name?</option>
+                {% for user_name in user %}
+                <option value="{{user_name.name}}">{{user_name.name}}</option>
+                {% endfor %}
+            </select>
+		</div>
+	</form>
 
-     <div class=col-3>
-      <a href="{{url_for('add_user')}}" method="POST"  class="waves-effect waves-light btn blue">Sign Up</a>
-      </div>
+		<div class=col-3>
+			<a href="{{url_for('add_user')}}" method="POST" class="waves-effect waves-light btn blue">Sign Up</a>
+		</div>
+</div>
 
-
-
-
-  {% endblock %}
+{% endblock %}
