@@ -31,7 +31,7 @@ def get_user(user):
         user_name = request.form.get("name") 	
         user_workout = request.form.get("week") 	
         user_id = mongo.db.user.find_one({'name': user_name})["_id"]	
-        user_info =  mongo.db.user.find_one({"_id": ObjectId(user_id)})	
+        user =  mongo.db.user.find_one({"_id": ObjectId(user_id)})	
         workout = mongo.db.workout.find({'week': user_workout})  
 
     if "user" in session:
@@ -40,9 +40,9 @@ def get_user(user):
 
     # find by form 'name', and get the ["_id"] from db
     # user = mongo.db.user.find_one({'_id': ObjectId(id)}) # this one doesn't print anything
-    print(user_id) # print result in terminal to see which _id is returned
+    print(user) # print result in terminal to see which _id is returned
     
-    return render_template("work_out.html", user_info=user_info, user_name=user_name, user_workout=user_workout, user=user, workout=workout, work_out=work_out)
+    return render_template("work_out.html", user_name=user_name, user_workout=user_workout, user=user, workout=workout, work_out=work_out)
 
 @app.route('/add_excercise')
 def add_excercise():
@@ -92,8 +92,9 @@ def insert_user():
 
 # def editUser - GET and POST
 
-@app.route('/edit_user/<user_id>' )
-def edit_user(user_id):
+@app.route('/edit_user/<user_name>' )
+def edit_user(user_name):
+    user_id = mongo.db.user.find_one({'name': user_name})["_id"]
     print(user_id)
     user =  mongo.db.user.find_one({"_id": ObjectId(user_id)})
     the_workout = mongo.db.week1_day1.find()
@@ -102,13 +103,14 @@ def edit_user(user_id):
 @app.route('/update_user/<user_id>', methods=["POST"])
 def update_user(user_id):
     users = mongo.db.user
+    user= mongo.db.user.find_one({"_id": ObjectId(user_id)})
     users.update( {'_id': ObjectId(user_id)},
     {
     'name':request.form.get('name'),
     'week':request.form.get('week'),
     'weight':request.form.get('weight'),
     })
-    return redirect(url_for('get_user'))
+    return redirect(url_for('get_user', user=user))
 
 # Once complete is selected => bring to edit user page where you can select yourself (the user) - this will keep track of where everyone is in the program
 
