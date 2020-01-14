@@ -48,7 +48,7 @@ def get_work_out():
     else:
             # if user is not created
             flash('You need to be logged in to see your workout', 'warning')
-            return redirect(url_for('get_user'))
+            return redirect(url_for('add_user'))
 
 
 @app.route('/add_excercise')
