@@ -4,7 +4,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
 app = Flask(__name__)
-app.secret_key = "super secret key" #change this
+app.secret_key = "super secret key" 
 app.config["MONGO_DBNAME"] = 'gym_buddy'
 app.config["MONGO_URI"] = 'mongodb+srv://murphya14:gymbuddy@gymbuddy-asswz.mongodb.net/gym_buddy?retryWrites=true&w=majority'
 mongo = PyMongo(app)
@@ -17,9 +17,12 @@ def home():
 
 @app.route('/get_user', methods=["GET", "POST"])
 def get_user():
+   
     ''' Function gets the user ID and name '''
     user_name = request.form.get("name")
-    user = mongo.db.user.find_one({'name': user_name})["_id"] # find by form 'name', and get the ["_id"] from db
+    user = mongo.db.user.find_one({'name': user_name})["_id"] 
+    session["user"] = user
+    # find by form 'name', and get the ["_id"] from db
     # user = mongo.db.user.find_one({'_id': ObjectId(id)}) # this one doesn't print anything
     print(user) # print result in terminal to see which _id is returned
     work_out=mongo.db.week1_day1.find()
@@ -29,11 +32,10 @@ def get_user():
 
 @app.route('/get_work_out', methods=["GET","POST"])
 def get_work_out():
-    if request.method == "POST":
-        session["name"] = request.form["name"]
-    
-    if "name" in session:
-        return redirect(session["name"])
+   
+    if "user" in session:
+        user = session["user"]
+        return redirect(url_for('get_user'))
     
     if 'get_user' in session:
         current_user = session['name']
