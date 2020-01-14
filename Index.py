@@ -48,7 +48,7 @@ def get_work_out():
     else:
             # if user is not created
             flash('You need to be logged in to see your workout', 'warning')
-            return redirect(url_for('signup'))
+            return redirect(url_for('add_user'))
 
 
 @app.route('/add_excercise')
@@ -74,7 +74,7 @@ def update_excercise(week1_day1_id):
     {
          'main_weight':request.form.get('main_weight')
     })
-    return redirect(url_for('work_out'))
+    return redirect(url_for('get_work_out'))
 
 
 #  This is the USER
