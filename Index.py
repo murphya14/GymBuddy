@@ -45,7 +45,7 @@ def get_user(user):
     # user = mongo.db.user.find_one({'_id': ObjectId(id)}) # this one doesn't print anything
     # print result in terminal to see which _id is returned
     
-    return render_template("work_out.html", user_id=user_id, user_name=user_name, user_workout=user_workout, user=user, workout=workout, work_out=work_out)
+    return render_template("work_out.html", user_name=user_name, user_workout=user_workout, user=user, workout=workout, work_out=work_out, user_id=user_id)
 
 @app.route('/add_excercise')
 def add_excercise():
