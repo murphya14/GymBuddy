@@ -37,8 +37,8 @@ def get_work_out():
         user = session["user"]
         return redirect(url_for('get_user'))
     
-    if 'get_user' in session:
-        current_user = session['name']
+    if 'user' in session:
+        current_user = session['user']
         flash('Hi "' + current_user + '". Welcome back! ' +
                 'Here is your current workout' , 'success')
 
@@ -55,7 +55,7 @@ def get_work_out():
 
     else:
             # if user is not created
-            flash('You need to be logged in to see your workout', 'warning')
+            flash('You need to be signed up to see your workout', 'warning')
             return redirect(url_for('add_user'))
 
 
