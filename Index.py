@@ -40,7 +40,8 @@ def get_user(user):
 
     # find by form 'name', and get the ["_id"] from db
     # user = mongo.db.user.find_one({'_id': ObjectId(id)}) # this one doesn't print anything
-    print(user) # print result in terminal to see which _id is returned
+   
+    # print result in terminal to see which _id is returned
     
     return render_template("work_out.html", user_name=user_name, user_workout=user_workout, user=user, workout=workout, work_out=work_out)
 
@@ -95,22 +96,22 @@ def insert_user():
 @app.route('/edit_user/<user_name>' )
 def edit_user(user_name):
     user_id = mongo.db.user.find_one({'name': user_name})["_id"]
-    print(user_id)
+    
     user =  mongo.db.user.find_one({"_id": ObjectId(user_id)})
     the_workout = mongo.db.week1_day1.find()
     return render_template('edit_user.html', user=user, workout=the_workout, user_id=user_id)
 
 @app.route('/update_user/<user_id>', methods=["POST"])
 def update_user(user_id):
+    print(user_id)
     users = mongo.db.user
-    user= mongo.db.user.find_one({"_id": ObjectId(user_id)})
     users.update( {'_id': ObjectId(user_id)},
     {
     'name':request.form.get('name'),
     'week':request.form.get('week'),
     'weight':request.form.get('weight'),
     })
-    return redirect(url_for('get_user', user=user))
+    return redirect(url_for('get_user', user=user_id))
 
 # Once complete is selected => bring to edit user page where you can select yourself (the user) - this will keep track of where everyone is in the program
 
