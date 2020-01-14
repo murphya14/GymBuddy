@@ -29,7 +29,12 @@ def get_user():
 
 @app.route('/get_work_out')
 def get_work_out():
-    #find the user
+    if 'logged' in session:
+        current_user = session['name']
+        flash('Hi "' + current_user + '". Welcome back! ' +
+                'Here is your current workout' , 'success')
+
+        #find the user
         user_name = request.form.get("name") 
         user_workout = request.form.get("week") 
         user_id = mongo.db.user.find_one({'name': user_name})["_id"]
@@ -39,7 +44,13 @@ def get_work_out():
         user_workout=user_workout,
         user = user,
         workout=workout)
-        
+
+    else:
+            # if user is not created
+            flash('You need to be logged in to see your workout', 'warning')
+            return redirect(url_for('add_user'))
+
+
 @app.route('/add_excercise')
 def add_excercise():
     return render_template("addexcercise.html",
