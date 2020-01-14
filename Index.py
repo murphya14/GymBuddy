@@ -27,9 +27,15 @@ def get_user():
     
 
 
-@app.route('/get_work_out')
+@app.route('/get_work_out', methods=["GET","POST"])
 def get_work_out():
-    if 'logged' in session:
+    if request.method == "POST":
+        session["name"] = request.form["name"]
+    
+    if "name" in session:
+        return redirect(session["name"])
+    
+    if 'get_user' in session:
         current_user = session['name']
         flash('Hi "' + current_user + '". Welcome back! ' +
                 'Here is your current workout' , 'success')
