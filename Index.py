@@ -43,7 +43,7 @@ def get_user(user):
    
     # print result in terminal to see which _id is returned
     
-    return render_template("work_out.html", user_name=user_name, user_workout=user_workout, user=user, workout=workout, work_out=work_out)
+    return render_template("work_out.html", user_workout=user_workout, user=user, workout=workout, work_out=work_out)
 
 @app.route('/add_excercise')
 def add_excercise():
