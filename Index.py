@@ -101,15 +101,16 @@ def insert_user():
 
 @app.route('/edit_user/<user_name>' )
 def edit_user(user_name):
-    user_id= mongo.db.user.find_one({'name': user_name})["_id"]
+    user_id = mongo.db.user.find_one({'name': user_name})["_id"]
+    print(user_id)
     user =  mongo.db.user.find_one({"_id": ObjectId(user_id)})
     the_workout = mongo.db.week1_day1.find()
-    return render_template('edit_user.html', user=user, workout=the_workout)
+    return render_template('edit_user.html', user=user, workout=the_workout, user_id=user_id)
 
-@app.route('/update_user/<user>', methods=["POST"])
-def update_user(user):
+@app.route('/update_user/<user_id>', methods=["POST"])
+def update_user(user_id):
     users = mongo.db.user
-    users.update(user, #is this already an object? Just put in user? 
+    users.update( {'_id': ObjectId(user_id)},
     {
     'name':request.form.get('name'),
     'week':request.form.get('week'),

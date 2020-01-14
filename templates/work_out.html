@@ -2,6 +2,7 @@
 {% block content %} 
 <h3> Warm Up </h3>
 <h4> Welcome {{user_name}} </h4>
+<h5> {{user_workout}} </h5>
 {% if user_workout == workout %}
         <div class=col-3>
       <a href="{{url_for('add_user')}}" method="POST"  class="waves-effect waves-light btn blue">Sign Up</a>
