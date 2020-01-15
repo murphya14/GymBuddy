@@ -14,10 +14,10 @@ comment=[] #for add comment (need to make function)
 def home():
 
     if request.method == "POST":
-       session["_id"] = request.form.get("_id") 
+       session["user"] = request.form.get("user") 
 
-    if "_id" in session:
-        return redirect(url_for('get_user', user_id=session["_id"]))
+    if "user" in session:
+        return redirect(url_for('get_user'))
 
     
     return render_template("index.html",
