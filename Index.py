@@ -42,7 +42,7 @@ def get_user():
 
    
 
-    return render_template("work_out.html", user=user)
+    return render_template("work_out.html", user=user, workout=workout, work_out=work_out)
 
 @app.route('/add_excercise')
 def add_excercise():
