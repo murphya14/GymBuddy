@@ -14,17 +14,17 @@ comment=[] #for add comment (need to make function)
 def home():
 
     if request.method == "POST":
-        session["user"] = request.form["user"]
+        session["user_id"] = request.form["user"].id
 
-    if "user" in session:
+    if "user_id" in session:
         return redirect(url_for('get_user'))
 
     
     return render_template("index.html",
     user=mongo.db.user.find())
 
-@app.route('/get_user/<user>', methods=["GET", "POST"])
-def get_user(user):
+@app.route('/get_user', methods=["GET", "POST"])
+def get_user():
     
     
     work_out=mongo.db.week1_day1.find()
@@ -36,15 +36,12 @@ def get_user(user):
         user =  mongo.db.user.find_one({"_id": ObjectId(user_id)})	
         workout = mongo.db.workout.find({'week': user_workout})  
 
-    if "user" in session:
-        user = session["user"]
-        user_id=user._id
+    if "user_id" in session:
+        user_id = session["user_id"]
         return redirect(url_for('get_user'))
 
-    # find by form 'name', and get the ["_id"] from db
-    # user = mongo.db.user.find_one({'_id': ObjectId(id)}) # this one doesn't print anything
-    # print result in terminal to see which _id is returned
-    
+   
+
     return render_template("work_out.html", user_id=user_id, user_name=user_name, user_workout=user_workout, user=user, workout=workout, work_out=work_out)
 
 @app.route('/add_excercise')
@@ -111,7 +108,7 @@ def update_user(user_id):
     'week':request.form.get('week'),
     'weight':request.form.get('weight'),
     })
-    return redirect(url_for('get_user', user=user_id))
+    return redirect(url_for('get_user'))
 
 # Once complete is selected => bring to edit user page where you can select yourself (the user) - this will keep track of where everyone is in the program
 
