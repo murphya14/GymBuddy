@@ -99,8 +99,6 @@ def edit_user(user_id):
 
 @app.route('/update_user/<user_id>', methods=["POST"])
 def update_user(user_id):
-   
-    
     users = mongo.db.user
     users.update( {'_id': ObjectId(user_id)},
     {
