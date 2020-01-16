@@ -16,6 +16,11 @@ def home():
 
     if request.method == "POST":
         session["user_id"] = request.form["user"]
+        user_id=session["user_id"] = request.form["user"]
+        print(user_id)
+        return redirect(url_for('get_user'))
+
+
 
     if "user_id" in session:
         return redirect(url_for('get_user'))
@@ -31,7 +36,9 @@ def get_user():
     if request.method == "POST":
         user_name = request.form.get("name") 
         user_id = mongo.db.user.find_one({'name': user_name})["_id"]	
-        user =  mongo.db.user.find_one({"_id": ObjectId(user_id)})	 
+        user =  mongo.db.user.find_one({"_id": ObjectId(user_id)})
+        session["user_id"]=user
+        return redirect(url_for('home'))
 
     if "user_id" in session:
         user_id = session["user_id"]	       
