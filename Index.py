@@ -10,23 +10,22 @@ app.config["MONGO_URI"] = 'mongodb+srv://murphya14:gymbuddy@gymbuddy-asswz.mongo
 mongo = PyMongo(app)
 comment=[] #for add comment (need to make function)
 
+
 @app.route('/', methods=["GET", "POST"])
 def home():
-    if request.method == "POST, GET":
-        session["name"] = request.form["name"]
-        print(session["name"])
+
+    if request.method == "POST":
+        session["user_id"] = request.form["user"]
+
     if "user_id" in session:
-            return redirect(url_for('get_user'))
+        return redirect(url_for('get_user'))
 
-
-  
     return render_template("index.html",
-        user=mongo.db.user.find())
+    user=mongo.db.user.find())
 
 @app.route('/get_user', methods=["GET", "POST"])
 def get_user():
-    
-    
+
     work_out=mongo.db.week1_day1.find()
     ''' Function gets the user ID and name '''
     if request.method == "POST":
@@ -36,17 +35,13 @@ def get_user():
         user =  mongo.db.user.find_one({"_id": ObjectId(user_id)})	
         workout = mongo.db.workout.find({'week': user_workout})  
 
-        print(user_id)
-        print(user)
-        print(workout)
-
     if "user_id" in session:
         user_id = session["user_id"]
         return redirect(url_for('get_user'))
-    
-        print(user_id)
- 
-    return render_template("work_out.html", user=user, workout=workout, work_out=work_out, user_name=user_name)
+
+   
+
+    return render_template("work_out.html", user=user, workout=workout, work_out=work_out)
 
 @app.route('/add_excercise')
 def add_excercise():
@@ -74,12 +69,6 @@ def update_excercise(week1_day1_id):
     return redirect(url_for('get_user'))
 
 
-#  This is the USER
-
-# name, week1_day1, weight
-
-# def addUser  - GET and POST
-
 
 @app.route('/add_user')
 def add_user():
@@ -105,6 +94,7 @@ def edit_user(user_id):
 @app.route('/update_user/<user_id>', methods=["POST"])
 def update_user(user_id):
    
+    
     users = mongo.db.user
     users.update( {'_id': ObjectId(user_id)},
     {
