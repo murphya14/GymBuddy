@@ -15,36 +15,24 @@ comment=[] #for add comment (need to make function)
 def home():
 
     if request.method == "POST":
-        session["user_id"] = request.form["user_id"]
-        user_id=session["user_id"] = request.form["user_id"]
+        session["user_id"] = request.form["_id"]
+        user_id=session["user_id"] 
         print(user_id)
-        return redirect(url_for('get_user'))
+        return redirect(url_for('get_user', user_id=user_id))
 
     if "user_id" in session:
-        return redirect(url_for('get_user'))
- 
-   
-    #   session["user_id"]= mongo.db.user.find_one({"_id": ObjectId(user_id)})
+        return redirect(url_for('get_user', user_id=user_id))
 
     return render_template("index.html",
-    user=mongo.db.user.find())
+    user=mongo.db.user.find(), users=mongo.db.user.find())
 
-@app.route('/get_user', methods=["GET", "POST"])
-def get_user():
+@app.route('/get_user/<user_id>', methods=["GET", "POST"])
+def get_user(user_id):
     
     work_out=mongo.db.week1_day1.find()
-    ''' Function gets the user ID and name '''
-    if request.method == "POST":
-        user_name = request.form.get("name") 
-        user_id = mongo.db.user.find_one({'name': user_name})["_id"]	
-        user =  mongo.db.user.find_one({"_id": ObjectId(user_id)})
-        session["user_id"]=user
-        return redirect(url_for('home'))
-
-    if "user_id" in session:
-        user_id = session["user_id"]	       
-        return redirect(url_for('get_user'))
-    
+    user =  mongo.db.user.find_one({"_id": ObjectId(user_id)})
+    session["user_id"]=user_id
+      
     if "user_id" not in session:
         return redirect(url_for('home'))
 
@@ -101,7 +89,6 @@ def edit_user(user_id):
 @app.route('/update_user/<user_id>', methods=["POST"])
 def update_user(user_id):
     users = mongo.db.user
-    user = mongo.db.user.find_one({"_id": ObjectId(user_id)})
     users.update( {'_id': ObjectId(user_id)},
     {
     'name':request.form.get('name'),
@@ -109,8 +96,7 @@ def update_user(user_id):
     'weight':request.form.get('weight'),
     })
 
-    
-    return redirect(url_for('get_user'))
+    return redirect(url_for('get_user', user_id=user_id))
 
 # Once complete is selected => bring to edit user page where you can select yourself (the user) - this will keep track of where everyone is in the program
 
