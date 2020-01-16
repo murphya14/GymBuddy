@@ -25,23 +25,20 @@ def home():
 
 @app.route('/get_user', methods=["GET", "POST"])
 def get_user():
-    user=''
+
     work_out=mongo.db.week1_day1.find()
     ''' Function gets the user ID and name '''
     if request.method == "POST":
-        user_name = request.form.get("name") 	
-        user_workout = request.form.get("week") 	
+        user_name = request.form.get("name")
+        user_workout =  request.form.get("week")
         user_id = mongo.db.user.find_one({'name': user_name})["_id"]	
-        user =  mongo.db.user.find_one({"_id": ObjectId(user_id)})	
-        workout = mongo.db.workout.find({'week': user_workout})  
+      
 
     if "user_id" in session:
         user_id = session["user_id"]
         return redirect(url_for('get_user'))
 
-   
-
-    return render_template("work_out.html", user=user, workout=workout, work_out=work_out)
+    return render_template("work_out.html", work_out=work_out, user_workout=user_workout, user_id=user_id)
 
 @app.route('/add_excercise')
 def add_excercise():
