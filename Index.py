@@ -39,7 +39,7 @@ def get_user():
 
    
 
-    return render_template("work_out.html", user=user, work_out=work_out)
+    return render_template("work_out.html", user=user, work_out=work_out, user_id=user_id)
 
 @app.route('/add_excercise')
 def add_excercise():
