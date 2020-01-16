@@ -34,10 +34,11 @@ def get_user():
         user =  mongo.db.user.find_one({"_id": ObjectId(user_id)})	 
 
     if "user_id" in session:
-        user_id = session["user_id"]       
+        user_id = session["user_id"]
+        user =  mongo.db.user.find_one({"_id": ObjectId(user_id)})	       
         return redirect(url_for('get_user'))
 
-    user =  mongo.db.user.find_one({"_id": ObjectId(user_id)})	
+    
 
     return render_template("work_out.html", user=user, work_out=work_out, user_id=user_id)
 
