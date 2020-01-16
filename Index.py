@@ -15,13 +15,12 @@ comment=[] #for add comment (need to make function)
 def home():
 
     if request.method == "POST":
-        session["name"] = request.form["name"]
-        name=session["name"]
-        user_id=mongo.db.user.find_one({name: 'name'}) 
-        print(name)
+        session["user"] = request.form["user"]
+        user_id=request.form["user_id"]
+        print(user_id)
         return redirect(url_for('get_user', user_id=user_id))
 
-    if "user_id" in session:
+    if "user" in session:
         return redirect(url_for('get_user', user_id=user_id))
 
     return render_template("index.html",
