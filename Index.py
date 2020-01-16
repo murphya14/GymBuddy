@@ -15,15 +15,16 @@ comment=[] #for add comment (need to make function)
 def home():
 
     if request.method == "POST":
-        session["user_id"] = request.form["user"]
-        user_id=session["user_id"] = request.form["user"]
+        session["user_id"] = request.form["user_id"]
+        user_id=session["user_id"] = request.form["user_id"]
         print(user_id)
         return redirect(url_for('get_user'))
 
-
-
     if "user_id" in session:
         return redirect(url_for('get_user'))
+ 
+   
+    #   session["user_id"]= mongo.db.user.find_one({"_id": ObjectId(user_id)})
 
     return render_template("index.html",
     user=mongo.db.user.find())
@@ -100,12 +101,15 @@ def edit_user(user_id):
 @app.route('/update_user/<user_id>', methods=["POST"])
 def update_user(user_id):
     users = mongo.db.user
+    user = mongo.db.user.find_one({"_id": ObjectId(user_id)})
     users.update( {'_id': ObjectId(user_id)},
     {
     'name':request.form.get('name'),
     'week':request.form.get('week'),
     'weight':request.form.get('weight'),
     })
+
+    
     return redirect(url_for('get_user'))
 
 # Once complete is selected => bring to edit user page where you can select yourself (the user) - this will keep track of where everyone is in the program
