@@ -25,7 +25,7 @@ def home():
 
 @app.route('/get_user', methods=["GET", "POST"])
 def get_user():
-
+    user=''
     work_out=mongo.db.week1_day1.find()
     ''' Function gets the user ID and name '''
     if request.method == "POST":
