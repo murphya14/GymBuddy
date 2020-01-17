@@ -8,9 +8,7 @@
         <div class=col-3>
       <a href="{{url_for('edit_user', user_id=user_id)}}" method="POST"  class="waves-effect waves-light btn blue">Edit User</a>
       </div>
-<div class=col-3>
-			<a href="{{url_for('add_user')}}" method="POST" class="waves-effect waves-light btn blue">Sign Up</a>
-		</div>
+
 
     <ul class="collapsible popout">
     {% for workout in work_out %}
@@ -59,7 +57,7 @@
       <a class="waves-effect waves-light btn orange">Completed</a>
       </div>
         <div class=col-3>
-         <a href="{{url_for('edit_weight', user_id=user__id)}}"  class="waves-effect waves-light btn yellow">Weight</a>
+         <a href="{{url_for('edit_weight', user_id=user_id)}}"  class="waves-effect waves-light btn yellow">Weight</a>
       </div>
        <i class="material-icons">fitness_center</i>{{workout.main}}</div>
       <div class="collapsible-body"><span> {{workout.main_description}}</span></div>

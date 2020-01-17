@@ -26,6 +26,7 @@ def home():
         name=session["name"] 
         user = mongo.db.user.find_one({'name': name})
         user_id=user['_id']
+       
         return redirect(url_for('get_user', user_id=user_id))
    
 
