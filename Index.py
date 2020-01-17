@@ -64,10 +64,14 @@ def edit_weight(user_id):
 
 @app.route('/update_weight/<user_id>', methods=["POST"])
 def update_weight(user_id):
-    user = mongo.db.user
-    user.update( {'_id': ObjectId(user_id)},
+    users = mongo.db.user
+    user= mongo.db.user.find_one({"_id": ObjectId(user_id)})
+    user_week=user['week']
+    workout=  mongo.db.week1_day1.find_one({"week": user_week})
+
+    users.update( {'_id': ObjectId(user_id)},
     {
-         'bench_press':request.form.get('lifting_weight') #check and do it for all the main weights 
+         {{workout.main}}:request.form.get({{workout.main}}) #check and do it for all the main weights 
     })
     return redirect(url_for('get_user', user_id=user_id))
 
