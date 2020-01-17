@@ -2,7 +2,6 @@ import os
 from flask import Flask, render_template, redirect, request, url_for, session, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-
 app = Flask(__name__)
 app.secret_key = "super secret key" 
 app.config["MONGO_DBNAME"] = 'gym_buddy'
@@ -18,8 +17,8 @@ def home():
         session["name"] = request.form["name"]
         name=session["name"] 
         user = mongo.db.user.find_one({'name': name})
+        print(user.values())
         user_id=user['_id']
-        print(user_id)
         return redirect(url_for('get_user', user_id=user_id))
 
     if "name" in session:
@@ -42,7 +41,7 @@ def get_user(user_id):
     if "user_id" not in session:
         return redirect(url_for('home'))
 
-    return render_template("work_out.html", user=user, work_out=work_out, user_id=user_id)
+    return render_template("work_out.html", user=user, work_out=work_out, user_id=user_id, user__id=user_id)
 
 @app.route('/add_excercise')
 def add_excercise():
