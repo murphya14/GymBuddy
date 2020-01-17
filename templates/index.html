@@ -2,15 +2,16 @@
 {% block content %}
 
 <h3>Welcome</h3>
+
 <div class="row">
-	<form action="{{ url_for('get_user', user_id=user_id)}}" method="POST" class="col s12">
+	<form method="POST" class="col s12">
 		<div class=col-3>
 			<button class="waves-effect waves-light btn blue">Find your workout</button>
 		</div>
     
 		<div class="input-field col s3">
 			<select id="name" name="name">
-                <option value="{{users.name}}" disabled selected>What's your name?</option>
+                <option value="Please select" disabled selected>What's your name?</option>
                 {% for user_name in users %}
                 <option value="{{user_name.name}}">{{user_name.name}}</option>
                 {% endfor %}
@@ -18,8 +19,8 @@
 		</div>
         
 		<div class="input-field col s3">
-			<select id="_id" name="_id">
-                <option value="{{user._id}}" disabled selected>What's your name?</option>
+			<select id="user_id" name="user_id">
+                <option value="Please select" disabled selected>What's your name?</option>
                 {% for user_id in user %}
                 <option value="{{user_id._id}}">{{user_id._id}}</option>
                 {% endfor %}
