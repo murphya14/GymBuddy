@@ -2,18 +2,22 @@
 {% block content %} 
 
 <h3>How heavy could you go {{user.name}}?</h3>
-<p>{{workout}}</p>
+<p>{{user_week}}</p>
   <div class="row">
     <form action="{{ url_for('update_weight', user_id=user_id) }}" method="POST" class="col s12">
+        
         <div class="input-field col s5">
-          <input id="excercise" name="excercise" type="text" class="validate" value="{{workout.main}}">
-          <label for="add_box">Excercise</label>
+          <input id="benchpress" name="benchpress" type="text" class="validate" value="{{user.benchpress}}">
+          <label for="add_box">Bench Press</label>
         </div>
-        <div class="input-field col s5">
-          <input id="{{workout['main']}}" name="{{workout['main']}}" type="text" class="validate" value="">
-          <label for="add_box">Weight</label>
+
+              <div class="input-field col s5">
+          <input id="squat" name="squat" type="text" class="validate" value="{{user.squat}}">
+          <label for="add_box">Squat</label>
         </div>
-      </div>
+
+
+
       <div class="row">
        <button class="btn waves-effect waves-light" type="submit" name="action">ADD WEIGHT
     <i class="material-icons right">send</i>

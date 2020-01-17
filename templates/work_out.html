@@ -70,7 +70,7 @@
       <a class="waves-effect waves-light btn orange">Completed</a>
       </div>
               <div class=col-3>
-      <a class="waves-effect waves-light btn yellow">Weight</a>
+      <a href="{{url_for('edit_weight', user_id=user__id)}}" class="waves-effect waves-light btn yellow">Weight</a>
       </div>
         <i class="material-icons">fitness_center</i>{{workout.main_1}}</div>
       <div class="collapsible-body"><span> {{workout.main_1_description}}</span></div>
@@ -81,7 +81,7 @@
       <a class="waves-effect waves-light btn orange">Completed</a>
       </div>
               <div class=col-3>
-      <a class="waves-effect waves-light btn yellow">Weight</a>
+      <a href="{{url_for('edit_weight', user_id=user__id)}}" class="waves-effect waves-light btn yellow">Weight</a>
       </div>
         <i class="material-icons">fitness_center</i>{{workout.main_2}}</div>
       <div class="collapsible-body"><span> {{workout.main_2_description}}</span></div>
