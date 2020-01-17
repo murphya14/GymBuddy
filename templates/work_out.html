@@ -1,16 +1,16 @@
 {% extends 'base.html'%}
 {% block content %} 
 <h3> Warm Up </h3>
-<h4> Welcome {{user_name}} </h4>
+<h4> Welcome {{user.name}} </h4>
 
 <h5> {{user.week}} </h5>
 
-
-
-              <div class=col-3>
+        <div class=col-3>
       <a href="{{url_for('edit_user', user_id=user_id)}}" method="POST"  class="waves-effect waves-light btn blue">Edit User</a>
       </div>
-
+        <div class=col-3>
+			<a href="{{url_for('add_user')}}" method="POST" class="waves-effect waves-light btn blue">Sign Up</a>
+		</div>
 
     <ul class="collapsible popout">
     {% for workout in work_out %}
@@ -59,7 +59,7 @@
       <a class="waves-effect waves-light btn orange">Completed</a>
       </div>
         <div class=col-3>
-         <a href="{{url_for('edit_excercise', week1_day1_id=workout._id)}}"  class="waves-effect waves-light btn yellow">Weight</a>
+         <a href="{{url_for('edit_excercise', week1_day1_id=workout._id, user_id=user_id)}}"  class="waves-effect waves-light btn yellow">Weight</a>
       </div>
        <i class="material-icons">fitness_center</i>{{workout.main}}</div>
       <div class="collapsible-body"><span> {{workout.main_description}}</span></div>

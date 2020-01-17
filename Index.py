@@ -25,7 +25,7 @@ def home():
     if "name" in session:
         name=session["name"] 
         user = mongo.db.user.find_one({'name': name})
-        user_id=user._id
+        user_id=user['_id']
         return redirect(url_for('get_user', user_id=user_id))
    
 
@@ -37,12 +37,13 @@ def get_user(user_id):
     
     work_out=mongo.db.week1_day1.find()
     user =  mongo.db.user.find_one({"_id": ObjectId(user_id)})
+    user_workout = user['week']
     session["user_id"]=user_id
       
     if "user_id" not in session:
         return redirect(url_for('home'))
 
-    return render_template("work_out.html", user=user, work_out=work_out, user_id=user_id)
+    return render_template("work_out.html", user=user, work_out=work_out, user_id=user_id, user_workout=user_workout)
 
 @app.route('/add_excercise')
 def add_excercise():
@@ -56,13 +57,14 @@ def insert_excercise():
     return redirect(url_for('get_user'))
 
 @app.route('/edit_excercise/<week1_day1_id>' )
-def edit_excercise(week1_day1_id):
+def edit_excercise(week1_day1_id, user_id):
     the_weight =  mongo.db.week1_day1.find_one({"_id": ObjectId(week1_day1_id)})
-    return render_template('edit_weight.html', weight=the_weight)
+    return render_template('edit_weight.html', weight=the_weight, user_id=user_id)
 
 @app.route('/update_excercise/<week1_day1_id>', methods=["POST"])
-def update_excercise(week1_day1_id):
+def update_excercise(week1_day1_id, user_id):
     workout = mongo.db.week1_day1
+    user_id = user_id
     workout.update( {'_id': ObjectId(week1_day1_id)},
     {
          'main_weight':request.form.get('main_weight')
