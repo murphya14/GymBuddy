@@ -67,11 +67,16 @@ def edit_weight(user_id):
 def update_weight(user_id):
     users = mongo.db.user
     
-    users.update( {'_id': ObjectId(user_id)},
-    {
-         'benchpress':request.form.get('benchpress'),
-         'squat':request.form.get('squat')                   #check and do it for all the main weights 
-    })
+    users.update(
+                {'_id': ObjectId(user_id)},
+                    {"$set":
+                        {
+                        'benchpress':request.form.get('benchpress'),
+                        'squat':request.form.get('squat')
+                        }
+                    }
+                )
+                   #check and do it for all the main weights 
     return redirect(url_for('get_user', user_id=user_id))
 
 @app.route('/add_user')
