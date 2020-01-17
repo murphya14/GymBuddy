@@ -67,11 +67,11 @@ def update_weight(user_id):
     users = mongo.db.user
     user= mongo.db.user.find_one({"_id": ObjectId(user_id)})
     user_week=user['week']
-    workout=  mongo.db.week1_day1.find_one({"week": user_week})
+    workout=mongo.db.week1_day1.find_one({"week": user_week})
 
     users.update( {'_id': ObjectId(user_id)},
     {
-         {{workout.main}}:request.form.get({{workout.main}}) #check and do it for all the main weights 
+         {{workout['main']}}:request.form.get({{workout['main']}}) #check and do it for all the main weights 
     })
     return redirect(url_for('get_user', user_id=user_id))
 
