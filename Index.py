@@ -62,8 +62,8 @@ def edit_weight(user_id):
     workout=  mongo.db.week1_day1.find_one({"week": user_week})
     return render_template('edit_weight.html', workout=workout)
 
-@app.route('/update_excercise/<user_id>', methods=["POST"])
-def update_excercise(user_id):
+@app.route('/update_weight/<user_id>', methods=["POST"])
+def update_weight(user_id):
     user = mongo.db.user.find_one({"_id": ObjectId(user_id)})
     user.update( {'_id': ObjectId(user_id)},
     {
