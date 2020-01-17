@@ -15,13 +15,17 @@ comment=[] #for add comment (need to make function)
 def home():
 
     if request.method == "POST":
-        session["user_id"] = request.form["user_id"]
-        user_id= session["user_id"] 
+        session["name"] = request.form["name"]
+        name=session["name"] 
+        user = mongo.db.user.find_one({'name': name})
+        user_id=user['_id']
         print(user_id)
         return redirect(url_for('get_user', user_id=user_id))
 
-    if "user_id" in session:
-        user_id= session["user_id"] 
+    if "name" in session:
+        name=session["name"] 
+        user = mongo.db.user.find_one({'name': name})
+        user_id=user._id
         return redirect(url_for('get_user', user_id=user_id))
    
 

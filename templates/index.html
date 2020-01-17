@@ -16,17 +16,7 @@
                 <option value="{{user_name.name}}">{{user_name.name}}</option>
                 {% endfor %}
             </select>
-		</div>
-        
-		<div class="input-field col s3">
-			<select id="user_id" name="user_id">
-                <option value="Please select" disabled selected>What's your name?</option>
-                {% for user_id in user %}
-                <option value="{{user_id._id}}">{{user_id._id}}</option>
-                {% endfor %}
-            </select>
-		</div>
-        
+		</div>       
 	</form>
 
 		<div class=col-3>
