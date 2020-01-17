@@ -73,8 +73,6 @@ def update_weight(user_id):
     })
     return redirect(url_for('get_user', user_id=user_id))
 
-
-
 @app.route('/add_user')
 def add_user():
     return render_template("signup.html",
