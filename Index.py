@@ -67,7 +67,7 @@ def update_weight(user_id):
     user = mongo.db.user
     user.update( {'_id': ObjectId(user_id)},
     {
-         'bench_press':request.form.get('weight') #check and do it for all the main weights 
+         'bench_press':request.form.get('lifting_weight') #check and do it for all the main weights 
     })
     return redirect(url_for('get_user', user_id=user_id))
 

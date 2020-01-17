@@ -1,17 +1,17 @@
 {% extends 'base.html'%}
 {% block content %} 
 
-<h3>How heavy could you go?</h3>
+<h3>How heavy could you go {{user.name}}?</h3>
 
   <div class="row">
     <form action="{{ url_for('update_weight', user_id=user_id) }}" method="POST" class="col s12">
         <div class="input-field col s5">
-          <input id="excercise_name" name="excercise" type="text" class="validate" value="{{workout.main}}">
+          <input id="excercise" name="excercise" type="text" class="validate" value="{{workout.main}}">
           <label for="add_box">Excercise</label>
         </div>
         <div class="input-field col s5">
-          <input id="weight" name="weight" type="text" class="validate">
-          <label for="fitness_center">Weight</label>
+          <input id="lifting_weight" name="lifting_weight" type="text" class="validate" value="">
+          <label for="add_box">Weight</label>
         </div>
       </div>
       <div class="row">
