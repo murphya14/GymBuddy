@@ -17,8 +17,9 @@ def home():
         session["name"] = request.form["name"]
         name=session["name"] 
         user = mongo.db.user.find_one({'name': name})
-        print(user.values())
+        
         user_id=user['_id']
+        print(user_id)
         return redirect(url_for('get_user', user_id=user_id))
 
     if "name" in session:
@@ -36,9 +37,9 @@ def get_user(user_id):
     
     work_out=mongo.db.week1_day1.find()
     user =  mongo.db.user.find_one({"_id": ObjectId(user_id)})
-    session["user_id"]=user_id
+    
       
-    if "user_id" not in session:
+    if "name" not in session:
         return redirect(url_for('home'))
 
     return render_template("work_out.html", user=user, work_out=work_out, user_id=user_id, user__id=user_id)
