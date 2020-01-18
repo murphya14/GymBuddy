@@ -9,5 +9,6 @@ $(".complete2").on("click", function() {
     $(".complete-2").hide();    
 });
 $(".complete3").on("click", function() {
-    $(".complete-3").hide();    
+    $(".complete-3").hide(); 
+  
 });

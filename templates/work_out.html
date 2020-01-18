@@ -8,12 +8,28 @@
 
 <h4> Welcome {{user.name}} to workout {{user.week}} </h4>
 
- <p>Complete the coloured excercise as 3 rounds of each excercise. For example if Clams and mountain climbers are the same colour, complete the excercise as a pair 3 times.
-This is only relevant for warm-ups and sprints</p>
 
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Workout Structure</a>
+
+  
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>How to structure the workout</h4>
+       <p>Complete the coloured excercise as 3 rounds of each excercise. For example if Clams and mountain climbers are the same colour, complete the excercise as a pair 3 times.
+    This is only relevant for warm-ups and sprints</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
+
+
+
+
+<div class=complete-0> 
 <h3> Warm Up </h3>
 
-    <ul class="collapsible popout complete-0">
+    <ul class="collapsible popout ">
 
     <li>
       <div class="collapsible-header"> 
@@ -46,10 +62,12 @@ This is only relevant for warm-ups and sprints</p>
         <div class=col-3>
       <a class="waves-effect waves-light btn orange complete">Completed</a>
       </div>
+</div>
 
+<div class="complete-1">
 
   <h3> Main </h3>
-    <ul class="collapsible popout complete-1">
+    <ul class="collapsible popout ">
  
     <li>
       <div class="collapsible-header">
@@ -84,9 +102,10 @@ This is only relevant for warm-ups and sprints</p>
           <div class=col-3>
       <a class="waves-effect waves-light btn orange complete1">Completed</a>
       </div>
-
+      </div>
+<div class="complete-2">
 <h3> Sprint </h3>
-    <ul class="collapsible popout complete-2">
+    <ul class="collapsible popout ">
  
     <li>
       <div class="collapsible-header">
@@ -118,7 +137,8 @@ This is only relevant for warm-ups and sprints</p>
               <div class=col-3>
       <a class="waves-effect waves-light btn orange complete2">Completed</a>
       </div>
-
+</div>
+<div class="complete-3"
   <h3> Cool Down </h3>
     <ul class="collapsible popout complete-3">
  
@@ -170,6 +190,7 @@ This is only relevant for warm-ups and sprints</p>
   <div class="row">
           <div class=col-3>
       <a class="waves-effect waves-light btn orange complete3">Completed</a>
+      </div>
       </div>
       </form>
     </div>
