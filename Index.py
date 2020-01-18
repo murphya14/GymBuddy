@@ -37,13 +37,13 @@ def home():
 def get_user(user_id):
     user= mongo.db.user.find_one({"_id": ObjectId(user_id)})
     user_week=user['week']
-    work_out=  mongo.db.week1_day1.find_one({"week": user_week})
+    workout=  mongo.db.week1_day1.find_one({"week": user_week})
     
     
     if "name" not in session:
         return redirect(url_for('home'))
 
-    return render_template("work_out.html", user=user, work_out=work_out, user_id=user_id, user__id=user_id)
+    return render_template("work_out.html", user=user, workout=workout, user_id=user_id, user__id=user_id)
 
 @app.route('/add_excercise')
 def add_excercise():
