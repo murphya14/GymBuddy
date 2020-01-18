@@ -45,16 +45,16 @@ def get_user(user_id):
 
     return render_template("work_out.html", user=user, workout=workout, user_id=user_id, user__id=user_id)
 
-@app.route('/add_excercise')
-def add_excercise():
+@app.route('/add_excercise/<user_id>')
+def add_excercise(user_id):
     return render_template("addexcercise.html",
-    categories=mongo.db.category.find())
+    user_id=user_id)
 
-@app.route('/insert_excercise', methods=['POST'])
-def insert_excercise():
-    workout=mongo.db.week1_day1
-    workout.insert_one(request.form.to_dict())
-    return redirect(url_for('get_user'))
+@app.route('/insert_excercise/<user_id>', methods=['POST'])
+def insert_excercise(user_id):
+    user=mongo.db.user.find_one({"_id": ObjectId(user_id)})
+    user.insert_one(request.form.to_dict())
+    return redirect(url_for('get_user', user_id=user_id))
 
 @app.route('/edit_weight/<user_id>' )
 def edit_weight(user_id):

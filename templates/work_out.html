@@ -1,47 +1,38 @@
 {% extends 'base.html'%}
 {% block content %} 
-<h3> Warm Up </h3>
-<h4> Welcome {{user.name}} </h4>
-
-<h5> {{user_workout}} </h5>
-
-
-        <div class=col-3>
+   <div class=col-3>
       <a href="{{url_for('edit_user', user_id=user_id)}}" method="POST"  class="waves-effect waves-light btn blue">Edit User</a>
       </div>
 
 
+<h4> Welcome {{user.name}} to workout {{user.week}} </h4>
+
+ 
+<h3> Warm Up </h3>
+<p>Complete the coloured excercise as 3 rounds of each excercise. For example if Clams and mountain climbers are the same colour, complete the excercise as a pair 3 times.
+This is only relevant for warm-ups and sprints</p>
     <ul class="collapsible popout">
-  
+
     <li>
       <div class="collapsible-header"> 
-      <div class=col-3>
-      <a class="waves-effect waves-light btn orange">Completed</a>
-      </div>
+
       <i class="material-icons">fitness_center</i>{{workout.warm_up}}</div>
       <div class="collapsible-body"><span> {{workout.warm_up_description}}</span></div>
     </li>
     <li>
-        <div class="collapsible-header"> 
-        <div class=col-3>
-      <a class="waves-effect waves-light btn orange">Completed</a>
-      </div>
+        <div class="collapsible-header">
         <i class="material-icons">fitness_center</i>{{workout.warm_up_1}}</div>
       <div class="collapsible-body"><span> {{workout.warm_up_1_description}}</span></div>
 </li>
 <li>
         <div class="collapsible-header"> 
-        <div class=col-3>
-      <a class="waves-effect waves-light btn orange">Completed</a>
-      </div>
+
       <i class="material-icons">fitness_center</i>{{workout.warm_up_2}}</div>
       <div class="collapsible-body"><span> {{workout.warm_up_2_description}}</span></div>
 </li>
 <li>
             <div class="collapsible-header">
-            <div class=col-3>
-      <a class="waves-effect waves-light btn orange">Completed</a>
-      </div>
+            
              <i class="material-icons">fitness_center</i>{{workout.warm_up_3}}</div>
       <div class="collapsible-body"><span> {{workout.warm_up_3_description}}</span></div>
     
@@ -49,14 +40,18 @@
   
   </ul>
 
+
+        <div class=col-3>
+      <a class="waves-effect waves-light btn orange">Completed</a>
+      </div>
+
+
   <h3> Main </h3>
     <ul class="collapsible popout">
  
     <li>
       <div class="collapsible-header">
-      <div class=col-3>
-      <a class="waves-effect waves-light btn orange">Completed</a>
-      </div>
+
         <div class=col-3>
          <a href="{{url_for('edit_weight', user_id=user_id)}}"  class="waves-effect waves-light btn yellow">Weight</a>
       </div>
@@ -65,9 +60,7 @@
 </li>
 <li>
         <div class="collapsible-header"> 
-        <div class=col-3>
-      <a class="waves-effect waves-light btn orange">Completed</a>
-      </div>
+
               <div class=col-3>
       <a href="{{url_for('edit_weight', user_id=user__id)}}" class="waves-effect waves-light btn yellow">Weight</a>
       </div>
@@ -76,9 +69,7 @@
 </li>
 <li>
         <div class="collapsible-header"> 
-        <div class=col-3>
-      <a class="waves-effect waves-light btn orange">Completed</a>
-      </div>
+
               <div class=col-3>
       <a href="{{url_for('edit_weight', user_id=user__id)}}" class="waves-effect waves-light btn yellow">Weight</a>
       </div>
@@ -88,114 +79,95 @@
     </li>
   </ul>
 
+          <div class=col-3>
+      <a class="waves-effect waves-light btn orange">Completed</a>
+      </div>
+
 <h3> Sprint </h3>
     <ul class="collapsible popout">
  
     <li>
       <div class="collapsible-header">
-      <div class=col-3>
-      <a class="waves-effect waves-light btn orange">Completed</a>
-      </div>
+
        <i class="material-icons">fitness_center</i>{{workout.sprint}}</div>
       <div class="collapsible-body"><span> {{workout.sprint_description}}</span></div>
     </li>
-    <li>
-        <div class="collapsible-header"> 
-        <div class=col-3>
-      <a class="waves-effect waves-light btn orange">Completed</a>
-      </div>
-        <i class="material-icons">fitness_center</i>{{workout.sprint_1}}</div>
-      <div class="collapsible-body"><span> {{workout.sprint_1_description}}</span></div>
-</li>
+
 <li>
         <div class="collapsible-header"> 
-        <div class=col-3>
-      <a class="waves-effect waves-light btn orange">Completed</a>
-      </div>
+
         <i class="material-icons">fitness_center</i>{{workout.sprint_2}}</div>
       <div class="collapsible-body"><span> {{workout.sprint_2_description}}</span></div>
     </li>
     <li>
             <div class="collapsible-header">
-            <div class=col-3>
-      <a class="waves-effect waves-light btn orange">Completed</a>
-      </div>
+
              <i class="material-icons">fitness_center</i>{{workout.sprint_3}}</div>
       <div class="collapsible-body"><span> {{workout.sprint_3_description}}</span></div>
 </li>
 <li>
               <div class="collapsible-header">
-              <div class=col-3>
-      <a class="waves-effect waves-light btn orange">Completed</a>
-      </div>
+      
                <i class="material-icons">fitness_center</i>{{workout.sprint_4}}</div>
       <div class="collapsible-body"><span> {{workout.sprint_4_description}}</span></div>
     </li>
   </ul>
+
+              <div class=col-3>
+      <a class="waves-effect waves-light btn orange">Completed</a>
+      </div>
 
   <h3> Cool Down </h3>
     <ul class="collapsible popout">
  
     <li>
       <div class="collapsible-header">
-      <div class=col-3>
-      <a class="waves-effect waves-light btn orange">Completed</a>
-      </div>
+
        <i class="material-icons">fitness_center</i>{{workout.cool_down}}</div>
       <div class="collapsible-body"><span> {{workout.cool_down_description}}</span></div>
 </li>
 <li>
         <div class="collapsible-header">
-        <div class=col-3>
-      <a class="waves-effect waves-light btn orange">Completed</a>
-      </div>
+
          <i class="material-icons">fitness_center</i>{{workout.cool_down_1}}</div>
       <div class="collapsible-body"><span> {{workout.cool_down_1_description}}</span></div>
 </li>
 <li>
         <div class="collapsible-header"> 
-        <div class=col-3>
-      <a class="waves-effect waves-light btn orange">Completed</a>
-      </div>
+
         <i class="material-icons">fitness_center</i>{{workout.cool_down_2}}</div>
       <div class="collapsible-body"><span> {{workout.cool_down_2_description}}</span></div>
   </li>
   <li>  
             <div class="collapsible-header">
-            <div class=col-3>
-      <a class="waves-effect waves-light btn orange">Completed</a>
-      </div>
+
              <i class="material-icons">fitness_center</i>{{workout.cool_down_3}}</div>
       <div class="collapsible-body"><span> {{workout.cool_down_3_description}}</span></div>
 </li>
 <li>
               <div class="collapsible-header">
-              <div class=col-3>
-      <a class="waves-effect waves-light btn orange">Completed</a>
-      </div>
+
                <i class="material-icons">fitness_center</i>{{workout.cool_down_4}}</div>
       <div class="collapsible-body"><span> {{workout.cool_down_4_description}}</span></div>
 </li>
 <li>
               <div class="collapsible-header">
-              <div class=col-3>
-      <a class="waves-effect waves-light btn orange">Completed</a>
-      </div>
+ 
                <i class="material-icons">fitness_center</i>{{workout.cool_down_5}}</div>
       <div class="collapsible-body"><span> {{workout.cool_down_5_description}}</span></div>
 </li>
 <li>
               <div class="collapsible-header">
-              
-              <div class=col-3>
-      <a class="waves-effect waves-light btn orange">Completed</a>
-      </div>
+ 
        <i class="material-icons">fitness_center</i>{{workout.cool_down_6}}</div>
       <div class="collapsible-body"><span> {{workout.cool_down_6_description}}</span></div>
 
     </li>
   
   </ul>
+          <div class=col-3>
+      <a class="waves-effect waves-light btn orange">Completed</a>
+      </div>
       </form>
     </div>
 {% endblock %}
