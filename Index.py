@@ -54,7 +54,8 @@ def add_excercise(user_id):
 def insert_excercise(user_id):
     user=mongo.db.user.find_one({"_id": ObjectId(user_id)})
     user.insert_one(request.form.to_dict())
-    return redirect(url_for('get_user', user_id=user_id))
+    user__id=user_id
+    return redirect(url_for('get_user', user_id=user_id, user__id=user__id))
 
 @app.route('/edit_weight/<user_id>' )
 def edit_weight(user_id):
