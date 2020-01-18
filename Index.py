@@ -35,11 +35,11 @@ def home():
 
 @app.route('/get_user/<user_id>', methods=["GET", "POST"])
 def get_user(user_id):
+    user= mongo.db.user.find_one({"_id": ObjectId(user_id)})
+    user_week=user['week']
+    work_out=  mongo.db.week1_day1.find_one({"week": user_week})
     
-    user =  mongo.db.user.find_one({"_id": ObjectId(user_id)})
-    user_workout=user['week']
-    work_out= mongo.db.week1_day1.find_one({"week": user_workout})
-      
+    
     if "name" not in session:
         return redirect(url_for('home'))
 
