@@ -15,7 +15,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
    
-                <div class="navbar-nav ml-auto ">
+                <div class="navbar-nav ml-auto col-12 ">
                     <!--name in session -->
                     <ul>
                     {% if 'name' in session %}
@@ -32,14 +32,14 @@
                 </div>
             </div>
         </nav>
-    
     </header>
-
+<main>
 <div class="container">
    {% block content %} {% endblock %} 
 </div>
+<main>
 
- <footer class="page-footer">
+ <footer class="page-footer fixed col-12">
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
@@ -60,9 +60,11 @@
   $(document).ready(function(){
     $('.collapsible').collapsible();
 
-    $('select').formSelect();})
-
+    $('select').formSelect();
     
+  $('input#input_text, textarea#textarea2').characterCounter();
+  });</script>
+
 
 
 </body>
