@@ -18,7 +18,7 @@
 
 <div class="input-field col s6">
     <select id="week" name="week">
-      <option value="{{user.week}}" disabled selected>Select the workout you are on</option>
+      <option value="{{user.week}}" disabled selected>Select the workout you wish to start on</option>
       {% for userweek in workout %}
         <option value="{{userweek.week}}">{{userweek.week}}</option>
       {% endfor %}
