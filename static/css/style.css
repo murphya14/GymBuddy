@@ -1,5 +1,9 @@
 body{
-    margin : 30px}
+    margin : 30px;
+    font-family: 'Ubuntu', sans-serif;
+    }
+
+
 
 .btn{
     margin: 5px;
@@ -16,7 +20,7 @@ body{
 
 .warm_up1{color: pink}
 
-.page-footer#footer {
+.page-footer {
   position: absolute;
   bottom: 0;
   width: 100%;

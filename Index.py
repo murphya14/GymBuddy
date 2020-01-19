@@ -45,17 +45,6 @@ def get_user(user_id):
 
     return render_template("work_out.html", user=user, workout=workout, user_id=user_id, user__id=user_id)
 
-@app.route('/add_excercise/<user_id>')
-def add_excercise(user_id):
-    return render_template("addexcercise.html",
-    user_id=user_id)
-
-@app.route('/insert_excercise/<user_id>', methods=['POST'])
-def insert_excercise(user_id):
-    user=mongo.db.user.find_one({"_id": ObjectId(user_id)})
-    user.insert_one(request.form.to_dict())
-    user__id=user_id
-    return redirect(url_for('get_user', user_id=user_id, user__id=user__id))
 
 @app.route('/edit_weight/<user_id>' )
 def edit_weight(user_id):
@@ -113,7 +102,12 @@ def update_user(user_id):
 
     return redirect(url_for('get_user', user_id=user_id))
 
-# Once complete is selected => bring to edit user page where you can select yourself (the user) - this will keep track of where everyone is in the program
+
+@app.route('/delete_user/<user_id>', methods=["POST"])
+def delete_user(user_id):
+    mongo.db.user.remove({'_id': ObjectId(user_id)})
+    return redirect(url_for('home'))
+
 
 print(os.environ.get('PORT'))
 
