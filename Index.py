@@ -11,7 +11,7 @@ comment=[] #for add comment (need to make function)
 
 
 @app.route('/', methods=["GET", "POST"])
-def home():
+def index():
 
     if request.method == "POST":
         session["name"] = request.form["name"]
@@ -41,7 +41,7 @@ def get_user(user_id):
     
     
     if "name" not in session:
-        return redirect(url_for('home'))
+        return redirect(url_for('index'))
 
     return render_template("work_out.html", user=user, workout=workout, user_id=user_id, user__id=user_id)
 
@@ -103,10 +103,10 @@ def update_user(user_id):
     return redirect(url_for('get_user', user_id=user_id))
 
 
-@app.route('/delete_user/<user_id>', methods=["POST"])
+@app.route('/delete_user/<user_id>')
 def delete_user(user_id):
     mongo.db.user.remove({'_id': ObjectId(user_id)})
-    return redirect(url_for('home'))
+    return redirect(url_for('index'))
 
 
 print(os.environ.get('PORT'))

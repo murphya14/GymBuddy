@@ -31,7 +31,8 @@
                     <li><a class="nav-item nav-link " href="{{ (url_for('edit_weight', user_id=user_id)) }}">Record your main lifts</a></li>
                     {% else %}
                     <!-- name not in session -->
-                    <li> <a class="nav-item nav-link " href="{{ (url_for('home')) }}">Home</a></li>
+                    <li><h1>GYM BUDDY</li>
+                    <li> <a class="nav-item nav-link " href="{{ (url_for('index')) }}">Home</a></li>
                      <li><a class="nav-item nav-link " href="{{ (url_for('add_user')) }}">Sign up</a></li>
                     {% endif %}
                     </ul>
@@ -43,13 +44,12 @@
 <div class="container">
    {% block content %} {% endblock %} 
 </div>
-<main>
+</main>
 
  <footer class="page-footer fixed col-12">
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
-                
                 <p class="grey-text text-lighten-4">© 2020 Copyright Ais Mash</p>
               </div>
               </div>

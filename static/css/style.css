@@ -18,7 +18,12 @@ body{
 
 .warm_up{color: blue}
 
-.warm_up1{color: pink}
+.warm_up1{color: #FF13EF}
+
+.cooldown{color:#13B0FF}
+
+.main{font-size:16px,
+    font-weight:700}
 
 .page-footer {
   position: absolute;
