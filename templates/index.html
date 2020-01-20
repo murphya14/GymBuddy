@@ -1,22 +1,26 @@
 {% extends 'base.html'%}
 {% block content %}
 
-<h3>Welcome</h3>
+<h3>Welcome!</h3>
 
-<div class="row">
-	<form method="POST" class="col s12">
-		<div class=col-3>
-			<button class="waves-effect waves-light btn orange">Find your workout</button>
-		</div>
-    
-		<div class="input-field col s3">
+    <div class="row">
+		<div class="input-field col s6 ">
 			<select id="name" name="name">
                 <option value="Please select" disabled selected>What's your name?</option>
                 {% for user_name in users %}
                 <option value="{{user_name.name}}">{{user_name.name}}</option>
                 {% endfor %}
             </select>
-		</div>       
+		</div> 
+        </div> 
+
+<div class="row">
+	<form method="POST" class="col s12">
+		<div class=" dropdown col-4">
+			<button class="waves-effect waves-light btn teal">Find your workout</button>
+		</div>
+    </div>
+    
 	</form>
 
 </div>
