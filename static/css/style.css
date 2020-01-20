@@ -2,16 +2,13 @@ body {
   font-size: 20px;
   color:black;
   font-family: 'Ubuntu', sans-serif; 
-  background-color:~D7DAD7;
+  background-color:grey;
   }
 
-.navbar {font-size: 30px
-            font-weight:700px;
-            color: black;
-            background-color: #0DE314}
-
-.nav-list{font-size: 30px
-            font-weight:700px;}
+main{
+     
+     font-size:25;
+}
 
 .home{margin-top: 30%;}
 
@@ -41,21 +38,21 @@ body {
     font-weight:700}
 
 
-
-.navbar-brand { position: relative; z-index: 2; }
-
-.navbar-nav.navbar-right .btn { position: relative; z-index: 2; padding: 4px 20px; margin: 10px auto; }
+.navbar{background-color:rgb(245, 12, 167);}
+.navbar-brand { position: relative; z-index: 2; font-weight:700; font-size: 35px}
+.nav-item{font-weight:700; font-size: 30px; color:white}
+.navbar-nav.navbar-right .btn { position: relative; z-index: 2; padding: 4px 20px; margin: 10px auto; font-size:30px}
 
 .navbar .navbar-collapse { position: relative; }
 .navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 22px; }
 
 .navbar .nav-collapse { position: absolute; z-index: 1; top: 0; left: 0; right: 0; bottom: 0; margin: 0; padding-right: 120px; padding-left: 80px; width: 100%; }
-.navbar.navbar-default .nav-collapse { background-color: #f8f8f8; }
-.navbar.navbar-inverse .nav-collapse { background-color: #222; }
+.navbar.navbar-default .nav-collapse { background-color: rgb(245, 12, 167); }
+.navbar.navbar-inverse .nav-collapse { background-color: rgb(245, 12, 167); }
 .navbar .nav-collapse .navbar-form { border-width: 0; box-shadow: none; }
 .nav-collapse>li { float: right; }
 
-.btn.btn-circle { border-radius: 50px; }
+.btn.btn-circle { border-radius: 30px; }
 .btn.btn-outline { background-color: transparent; }
 
 @media screen and (max-width: 767px) {
