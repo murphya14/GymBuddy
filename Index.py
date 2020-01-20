@@ -103,7 +103,7 @@ def update_user(user_id):
     return redirect(url_for('get_user', user_id=user_id))
 
 
-@app.route('/delete_user/<user_id>')
+@app.route('/delete_user/<user_id>',  methods=["POST"])
 def delete_user(user_id):
     mongo.db.user.remove({'_id': ObjectId(user_id)})
     return redirect(url_for('index'))

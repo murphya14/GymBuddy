@@ -18,37 +18,30 @@
 </head>
 <body>
  <header>
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto my-2 my-lg-0">
-        {% if 'name' in session %}
-          <li class="nav-item">
-          <a class=" nav-link " href="{{ (url_for('get_user', user_id=user_id)) }}">Current Workout</a>
-          </li>
-          <li class="nav-item">
-          <a class=" nav-link " href="{{ (url_for('edit_user', user_id=user_id )) }}">My Profile</a>
-          </li>
-          <li class="nav-item">
-            <a class=" nav-link " href="{{ (url_for('edit_weight', user_id=user_id)) }}">Record your main lifts</a>
-          </li>
-          <li class="nav-item">
-          <a class=" nav-link " href="{{ (url_for('edit_weight', user_id=user_id)) }}">Record your main lifts</a>
-          </li>
-           {% else %}
-           <li class="nav-item">
-          <a class=" nav-link " href="{{ (url_for('index')) }}">Home</a>
-          </li>
-          <li class="nav-item">
-     <a class="nav-link " href="{{ (url_for('add_user')) }}">Sign up</a>
-          </li>
-        </ul>
-      </div>
-    </div>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+   
+                <div class="navbar-nav ml-auto col-12 ">
+                    <!--name in session -->
+                    <ul>
+                    {% if 'name' in session %}
+                    <li><h1>GYM BUDDY</li>
+                    <div class="pull-right nav-list">
+                    <li><a class="nav-item nav-link " href="{{ (url_for('get_user', user_id=user_id)) }}">Current Workout</a></li>
+                    <li><a class="nav-item nav-link " href="{{ (url_for('edit_user', user_id=user_id )) }}">My Profile</a></li>
+                    <li><a class="nav-item nav-link " href="{{ (url_for('edit_weight', user_id=user_id)) }}">Record your main lifts</a></li>
+                    </div>
+                    {% else %}
+                    <!-- name not in session -->
+                    <li><h1>GYM BUDDY</li>
+                    <div class="pull-right nav-list">
+                    <li> <a class="nav-item nav-link " href="{{ (url_for('index')) }}">Home</a></li>
+                     <li><a class="nav-item nav-link " href="{{ (url_for('add_user')) }}">Sign up</a></li>
+                     </div>
+                    {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
   </nav>
 
 
