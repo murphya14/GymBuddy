@@ -18,12 +18,47 @@
 </head>
 <body>
  <header>
-   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-   
-                <div class="navbar-nav ml-auto col-12 ">
-                    <!--name in session -->
-                    <ul>
-                    {% if 'name' in session %}
+  
+
+  <!-- Second navbar for profile settings -->
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-4">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="">GYM BUDDY</a>
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-4">
+          <ul class="nav navbar-nav navbar-right">
+                       {% if 'name' in session %}
+                  
+                    <div class="pull-right nav-list">
+                    <li><a class="nav-item nav-link " href="{{ (url_for('get_user', user_id=user_id)) }}">Current Workout</a></li>
+                    <li><a class="nav-item nav-link " href="{{ (url_for('edit_user', user_id=user_id )) }}">My Profile</a></li>
+                    <li><a class="nav-item nav-link " href="{{ (url_for('edit_weight', user_id=user_id)) }}">Record your main lifts</a></li>
+                    </div>
+                    {% else %}
+                    <!-- name not in session -->
+                   
+                    <div class="pull-right nav-list">
+                    <li> <a class="nav-item nav-link " href="{{ (url_for('index')) }}">Home</a></li>
+                     <li><a class="nav-item nav-link " href="{{ (url_for('add_user')) }}">Sign up</a></li>
+                     </div>
+                    {% endif %}
+                    </ul>
+          <ul class="collapse nav navbar-nav nav-collapse" role="search" id="nav-collapse4">
+            <li><a href="#">Support</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img class="img-circle" src="https://pbs.twimg.com/profile_images/588909533428322304/Gxuyp46N.jpg" alt="maridlcrmn" width="20" /> Maridlcrmn <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                         {% if 'name' in session %}
                     <li><h1>GYM BUDDY</li>
                     <div class="pull-right nav-list">
                     <li><a class="nav-item nav-link " href="{{ (url_for('get_user', user_id=user_id)) }}">Current Workout</a></li>
@@ -39,10 +74,11 @@
                      </div>
                     {% endif %}
                     </ul>
-                </div>
-            </div>
-        </nav>
-  </nav>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+</div><!-- /.container-fluid -->
+
 
 
     </header>
@@ -52,18 +88,27 @@
 </div>
 </main>
 
- <footer class="page-footer fixed col-12">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <p class="grey-text text-lighten-4">© 2020 Copyright Ais Mash</p>
-              </div>
-            
-            </div>
-          </footer>
+<!-- Footer -->
+	<section id="footer">
+		<div class="container">
+			<div class="row text-center text-xs-center text-sm-left text-md-left">	
+				</hr>
+			</div>	
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+					<p><u><a href="https://www.GymBuddy.com/">Gym Buddy</a></u> has been created for educational purposes only</p>
+					<p class="h6">&copy All right Reversed.<a class="text-green ml-2" href="" target="_blank"> Ais Mash</a></p>
+				</div>
+				</hr>
+			</div>	
+		</div>
+	</section>
+	<!-- ./Footer -->
 
 
-
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
