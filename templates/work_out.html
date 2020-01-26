@@ -6,10 +6,10 @@
    
 
 
-<h4> Welcome {{user.name}} to workout {{user.week}} </h4>
+<h4 class="center"> Welcome to workout {{user.week}} {{user.name}}  </h4>
 
 
-  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Workout Structure</a>
+  <a class="waves-effect waves-light btn modal-trigger center" href="#modal1">Workout Structure</a>
 
   
   <div id="modal1" class="modal">
@@ -23,7 +23,7 @@
     </div>
   </div>
 
-<div class="complete-0 orange"> 
+<div class="complete-0"> 
 <h3> Warm Up </h3>
 
     <ul class="collapsible popout ">
@@ -60,7 +60,7 @@
 
 
         <div class=col-3>
-      <a class="waves-effect waves-light btn orange complete">Completed</a>
+      <a class="waves-effect waves-light btn orange complete center">Completed</a>
       </div>
 </div>
 
@@ -100,7 +100,7 @@
   </ul>
 
           <div class=col-3>
-      <a class="waves-effect waves-light btn grey complete1">Completed</a>
+      <a class="waves-effect waves-light btn grey complete1 center">Completed</a>
       </div>
       </div>
 <div class="complete-2">
@@ -135,7 +135,7 @@
   </ul>
 
               <div class=col-3>
-      <a class="waves-effect waves-light btn orange complete2">Completed</a>
+      <a class="waves-effect waves-light btn orange complete2 center">Completed</a>
       </div>
 </div>
 <div class="complete-3">
@@ -189,7 +189,7 @@
   </ul>
   <div class="row">
           <div class=col-3>
-      <a class="waves-effect waves-light btn grey complete3">Completed</a>
+      <a class="waves-effect waves-light btn grey complete3 center">Completed</a>
       </div>
       </div>
       </form>
@@ -197,7 +197,7 @@
 </div>
 </div>
 <div class="row">
-<div class=col-3>
+<div class="col-4 center">
       <a href="{{url_for('edit_user', user_id=user_id)}}" method="POST"  class="waves-effect waves-light btn blue">Select the next workout</a>
       </div>
       </div>

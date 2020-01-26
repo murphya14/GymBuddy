@@ -6,8 +6,15 @@ body {
   }
 
 main{
-     
+     font-family: cursive;
      font-size:25;
+}
+
+.welcome{font-size:40px}
+
+.center {
+  padding: 70px 0;
+  text-align: center;
 }
 
 .home{margin-top: 30%;}
@@ -23,7 +30,7 @@ align-content: center;}
 .btn{
     margin: 5px;
     color: black;
-    font-weight:700;
+    font-weight:800;
     border-radius: 100px; 
     float:right;
 }
@@ -43,7 +50,7 @@ nav_link
 
 .logo{font-weight:700; font-size: 35px; color: rgb(245, 12, 167)}
 .navbar-brand { position: relative; z-index: 2; font-weight:700; font-size: 35px; color: rgb(245, 12, 167)}
-.nav-item{font-weight:700; font-size: 30px; color:white}
+.nav-item{font-weight:700; font-size: 20px; color:white}
 .nav-item:hover {
   color: rgb(245, 12, 167);
   text-decoration:none;

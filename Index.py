@@ -9,8 +9,12 @@ app.config["MONGO_URI"] = 'mongodb+srv://murphya14:gymbuddy@gymbuddy-asswz.mongo
 mongo = PyMongo(app)
 comment=[] #for add comment (need to make function)
 
+@app.route('/')
+def welcome():
+    return render_template("welcome.html")
 
-@app.route('/', methods=["GET", "POST"])
+
+@app.route('/index', methods=["GET", "POST"])
 def index():
 
     if request.method == "POST":
@@ -106,7 +110,7 @@ def update_user(user_id):
 @app.route('/delete_user/<user_id>',  methods=["POST"])
 def delete_user(user_id):
     mongo.db.user.remove({'_id': ObjectId(user_id)})
-    return redirect(url_for('index'))
+    return redirect(url_for('welcome'))
 
 
 print(os.environ.get('PORT'))
