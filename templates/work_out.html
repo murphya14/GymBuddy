@@ -6,22 +6,26 @@
    
 
 
-<h4 class="center"> Welcome to workout {{user.week}} {{user.name}}  </h4>
+<h4 class="center greeting"> Welcome to workout {{user.week}} {{user.name}}  </h4>
 
-
-  <a class="waves-effect waves-light btn modal-trigger center" href="#modal1">Workout Structure</a>
-
+<div class="row">
+  <a class="waves-effect waves-light blue btn modal-trigger col-md-pull-5 workout_struct" href="#modal1">Workout Structure</a>
+</div>
   
   <div id="modal1" class="modal">
     <div class="modal-content">
       <h4>How to structure the workout</h4>
-       <p>Complete the coloured excercise as 3 rounds of each excercise. For example if Clams and mountain climbers are the same colour, complete the excercise as a pair 3 times.
+       <p>Complete the coloured excercise as a pair for 3 rounds. For example if Clams and mountain climbers are the both blue then those two excercises are a round. Repeat that pair of excercise 3 times. 
     This is only relevant for warm-ups and sprints</p>
-    </div>
+    </br> 
+    <p> The main excercises are to be done in reps as outlined by the numbers beside them. You can record the weight of your main lifts by selecting the "Weight" button.</p></br>
+    <p> The cooldown is an essentail part of training and will aid mobility. 20 seconds per cool down is recommended.</p>
+    
     <div class="modal-footer">
       <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
     </div>
   </div>
+</div>
 
 <div class="complete-0"> 
 <h3> Warm Up </h3>
@@ -60,7 +64,7 @@
 
 
         <div class=col-3>
-      <a class="waves-effect waves-light btn orange complete center">Completed</a>
+      <a class="waves-effect waves-light btn green complete center">Completed</a>
       </div>
 </div>
 
@@ -100,7 +104,7 @@
   </ul>
 
           <div class=col-3>
-      <a class="waves-effect waves-light btn grey complete1 center">Completed</a>
+      <a class="waves-effect waves-light btn green complete1 center">Completed</a>
       </div>
       </div>
 <div class="complete-2">
@@ -135,7 +139,7 @@
   </ul>
 
               <div class=col-3>
-      <a class="waves-effect waves-light btn orange complete2 center">Completed</a>
+      <a class="waves-effect waves-light btn green complete2 center">Completed</a>
       </div>
 </div>
 <div class="complete-3">
@@ -189,7 +193,7 @@
   </ul>
   <div class="row">
           <div class=col-3>
-      <a class="waves-effect waves-light btn grey complete3 center">Completed</a>
+      <a class="waves-effect waves-light btn green complete3 center">Completed</a>
       </div>
       </div>
       </form>
@@ -197,8 +201,8 @@
 </div>
 </div>
 <div class="row">
-<div class="col-4 center">
-      <a href="{{url_for('edit_user', user_id=user_id)}}" method="POST"  class="waves-effect waves-light btn blue">Select the next workout</a>
+<div class="col-4 ">
+      <a href="{{url_for('edit_user', user_id=user_id)}}" method="POST"  class="waves-effect waves-light btn blue col-md-pull-5">Select the next workout</a>
       </div>
       </div>
        

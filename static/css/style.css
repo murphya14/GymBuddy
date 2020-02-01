@@ -39,14 +39,7 @@ nav_link
 .collapsible-header{margin:30px;
 }
 
-.warm_up{color: blue}
 
-.warm_up1{color: #FF13EF}
-
-.cooldown{color:#13B0FF}
-
-.main{font-size:16px;
-    font-weight:700}
 
 .logo{font-weight:700; font-size: 35px; color: rgb(245, 12, 167)}
 .navbar-brand { position: relative; z-index: 2; font-weight:700; font-size: 35px; color: rgb(245, 12, 167)}
@@ -77,6 +70,27 @@ nav_link
     .navbar .nav-collapse .navbar-form { margin: 0; }
     .nav-collapse>li { float: none; }
 }
+
+/*Workout page*/
+
+.greeting{ font-size: 20px;
+            font-weight: 700;
+            color: rgb(245, 12, 167)}
+
+.warm_up{color: blue;
+font-size:16px;
+    font-weight:700}
+
+.warm_up1{color: #FF13EF;
+font-size:16px;
+    font-weight:700}
+
+.cooldown{color:#13B0FF;
+font-size:16px;
+    font-weight:700}
+
+.main{font-size:16px;
+    font-weight:700}
 
 
 * Footer */
