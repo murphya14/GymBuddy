@@ -44,6 +44,14 @@
                     <li><a class="nav-item nav-link " href="{{ (url_for('edit_user', user_id=user_id )) }}">My Profile</a></li>
                     <li><a class="nav-item nav-link " href="{{ (url_for('edit_weight', user_id=user_id)) }}">Record your main lifts</a></li>
                     </div>
+                    {% elif url_for('welcome') %}
+                    <!-- welcome page -->
+                   
+                    <div class="pull-right nav-list">
+                    <li> <a class="nav-item nav-link " href="{{ (url_for('index')) }}">Members Area</a></li>
+                     <li><a class="nav-item nav-link " href="{{ (url_for('add_user')) }}">Sign up</a></li>
+                     </div>
+
                     {% else %}
                     <!-- name not in session -->
                    
@@ -53,8 +61,8 @@
                      </div>
                     {% endif %}
                     </ul>
-                    
-             
+            
+    
 
 
 
