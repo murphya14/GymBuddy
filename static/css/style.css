@@ -3,7 +3,15 @@ body {
   color:black;
   font-family: 'Ubuntu', sans-serif; 
   background-color:white;
-  padding-bottom:80px; 
+    margin:0;
+   padding:0;
+   height:100%;
+   padding-bottom:80px; 
+  }
+
+.container{
+      min-height:100%;
+   position:relative;
   }
 
 main{
@@ -95,7 +103,7 @@ font-size:16px;
 
 
 * Footer */
-@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
 section {
     padding: 60px 0;
 }
@@ -108,11 +116,23 @@ section .section-title {
 }
 #footer {
     background: rgb(245, 12, 167) !important;
-      position:absolute;
+    position:absolute;
    bottom:0;
    width:100%;
    height:80px; 
 }
+
+#footer_workout{
+    background: rgb(245, 12, 167) !important;
+    position:relative;
+   bottom:0;
+   width:100%;
+   height:80px; 
+}
+
+
+
+
 #footer h5{
 	padding-left: 10px;
     border-left: 3px solid #eeeeee;
