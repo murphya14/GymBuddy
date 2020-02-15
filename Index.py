@@ -12,6 +12,8 @@ mongo = PyMongo(app)
 
 @app.route('/')
 def welcome():
+
+    
     return render_template("welcome.html")
 
 
