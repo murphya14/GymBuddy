@@ -32,7 +32,6 @@ def index():
         user = mongo.db.user.find_one({'name': name})
 
         user_id = user['_id']
-        print user_id
         return redirect(url_for('get_user', user_id=user_id))
 
     if 'name' in session:
@@ -74,10 +73,20 @@ def update_weight(user_id):
     users = mongo.db.user
 
     users.update({'_id': ObjectId(user_id)},
-                 {'$set': {'benchpress': request.form.get('benchpress'
-                 ), 'squat': request.form.get('squat')}})
+                 {'$set': {'benchpress': request.form.get('benchpress'), 
+                 'squat': request.form.get('squat'),
+                 'inclinebenchpress': request.form.get('inclinebenchpress'),
+                 'legpress': request.form.get('legpress'),
+                 'latpulldown': request.form.get('latpulldown'),
+                 'seatedrow': request.form.get('seatedrow'),
+                 'sideraise': request.form.get('sideraise'),
+                 'singlearmreversefly': request.form.get('singlearmreversefly'),
+                 'bulgariansplitsquat': request.form.get('bulgariansplitsquat'),
+                 'facepull': request.form.get('facepull')
+                 'deadlift': request.form.get('deadlift')
+                 }})
 
-                   # check and do it for all the main weights
+        
 
     return redirect(url_for('get_user', user_id=user_id))
 
@@ -96,7 +105,6 @@ def insert_user():
     return redirect(url_for('welcome'))
 
 
-# def editUser - GET and POST
 
 @app.route('/edit_user/<user_id>')
 def edit_user(user_id):
@@ -121,8 +129,6 @@ def update_user(user_id):
 def delete_user(user_id):
     mongo.db.user.remove({'_id': ObjectId(user_id)})
     return redirect(url_for('welcome'))
-
-print os.environ.get('PORT')
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT',
