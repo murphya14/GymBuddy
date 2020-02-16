@@ -107,22 +107,22 @@ _Accordian:_
 _Weight Button:_
 * This is only for the __main__ excercises. This button will bring the user to the a page where they can record the value of their main lifting weights. 
 
-#### Feature 8
+#### Feature 7
 _Completed Button:_
 * There is a __Completed__ button for the warm-up, main, sprint and cool down. Once the Complete button is clicked, that particulat section of the workout is hidden. 
 This allows the user to only see the workout that still needs to be completed and so, aids usability. 
 
-#### Feature 9
+#### Feature 8
 _Select Next workout button:_
 * Footer copyrighting the design.
 * Navigation bar boldy showing the name of the game and an intriging comment that hints at the games nature.
 
-#### Feature 10
+#### Feature 9
 _Header & Footer:_
 * Footer copyrighting the design.
 * Navigation bar  displays the options to the user such as navigating to the __Current Workout__, viewing (and editing) __My Profile__ and the option to __Record your main lifts__.
 
-#### Feature 11
+#### Feature 10
 _Edit profile:_
 * This allows you to edit your name, weight and current workout.
 * There is also the option to delete your profile.

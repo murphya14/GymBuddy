@@ -21,74 +21,96 @@ Most common path through the website:
 
 ### Testing client stories from UX section of README.md
 
-1. A striking design that is visually stimulating and provides an incentive to play the game.
-     * The text is Orbitron which allows for an element of futuristic/space theme that may gain the potential players interest.
-     * The gradient background adds to the theme and contrats effectively with the colour pads.
-     * The striking pink colour of the "How to Play" button may incentive the potential to click it and find out about the game.
+1. I want be introduced to the website and have access to a sign up or find my profile - Welcome Page
+     * The text is Ubuntu which allows for the impression of a simplistic theme that reflects the attitude of the application (making excercise easy and .)
+     * The white background and sparse colours further enhance the simplistic feel of GymBuddy. 
+     * The striking pink colour as you hover over the links in the navbar incentive the potential user to click it and sign up or go to the members area.
 
-2. I want to be able to access information so I can understand more about the game.
-    * The modal button provides a conscise tool to portray the infromation about the game.
-    * Its contrasting colours make it easily identifiable for the player and the information provided is clear so they can get started as soon as possible.
+2. I want to be able to make an account with my personal information in it
+    * The sign up page allows you to input your name, weight and the workout you would like to begin.
 
-3. I want to be able to control the power button so I can experience the interactive nature of the game.
-    * A clearly labelled POWER button indicates how the game is turned on.
-    * Once clicked, the pads light up and so does the button and this demonstrates the interactive nature of the game.
-    * "SCORE" will appear on the scoreboard which indicates the function of the board.
+3. I want to be able to access my account that has already been created 
+    * The Members Area allows the user to choose their name. 
+    * Once selected, the user will be brought to their current workout.
 
-4. I want to be able to control the start button so as to begin when I am ready.
-     *  The start button will not light up until clicked.
-     *  This initializes the game as shown by the score board "0."
+4. I want to be able to get more information about the workout 
+     * The button labelled "Workout Structure" provides information about the layout of the program and how to complete the workout.
+    
+5. I want to be able to get access to examples of the excercises
+     * The option is available, through an accordian, to access links which gives examples of each excercise.
+     * The user does not have to look at all examples as they may already be aware of how to execute the excercise. This is why an accordian was utilised as it gives the user control of how much instruction is required. 
 
-5. I want to be able to set a challenge level.
-     *  A clearly labelled "STRICT" slider is in the controls and once clicked it changes to red indicating the challenge that is set.
-     *  All instructions for this are shown in the "How to Play" modal.
+6. I want to be able to record the weight of the main lifts 
+     * The yellow "Weight" button that accompany the main excercises allows the user to access a page the records the weight of the main lifts (e.g. squat, bench press etc.)
+     * This page is also accessable through the navbar "Record your Main Lifts"
 
-6. I want to be able to get instant feedback on whether I have lost/game over or gone ahead to the next level/win.
-     * The scoreboard displays the level the player is on and if they have won/lost.
+    
+7. I want to be able to see only the excercises that I have not already completed
+     * There is a green "Completed" button under each set of excercise (e.g. warmups.) Once clicked, the corressponding set of excercises will disappear.
+     * The workout page will only display the sets of excercises left to be completed. 
+
+8. I want to be able to move onto the next workout 
+     * The green "Select Next Workout" button will bring the user to the edit_user page where they can intuitivially select their next workout.
+     * If they were on workout 1A, the next workout would be 1B and so on. 
+
+9. I want to be able to access links through the navbar and see copyright info in the footer 
+     * Both have been created with further information.
+
+10. I want to be able to edit my profile
+     * The user can edit their name, delete their profile and edit their weight in this page.
+
 
 ### Manual (logical) testing of all elements and functionality on every page.
 
-#### Home Page:
 
-1. Dashboard:
+1. Welcome Page:
 Confirmed
-    * the dashboard was displaying properly on all screens.
-    * The score board was displaying --
-    * Nothing lights up until the power button is pressed.
+    * the page was displaying properly on all screens.
+    * If name in Session, redirects to get_user
+    * Links for Sign up and Members Area are working and directing appropriately
     * The header and footer were sitting correctly.
     * Spelling was correct and clear.
-    * All controls were placed appropriately.
+    
+2. Sign up page
+Confirmed 
+ * can create new user
+ * dropdown detailing all the workouts is enabled
+ * redirects to the welcome page
 
-2. "How to Play" modal:
+3. Members Area page
+Confirmed 
+ * dropdown detailing all the users is enabled
+ * redirects to the wworkout page
+
+
+4. "Workout Structure" modal:
 Confirmed
-     * Positioned correctly when the page was opened,
+     * Positioned correctly when the page was opened.
      * Visually appealing and obvious to the user.
      * All spelling is correct.
      * Closing the modal is accessable by re-clicking the button or clicking "Close."
 
-3. Power button:
+5. Workout Page:
 Confirmed
-    * Hover over the button and ensure that it changes colour.
-    * Once clicked the game reacts by lighting up and changing the scoreboard from "--" to "Score."
+    * The correct greeting message appears with the current workout and user.
+    * The accordian works and has links to the excercise 
+    * Selecting the complete button means the associating excercise set is removed from view.
+    * Clicking the weight button brings the user to the edit weights page
+    * User can select the button at the end of the page to choose the next workout
+    * All links in the nav bar work 
 
-4. Start button:
+6. Edit weight page:
 Confirmed
-    * The user has the option of pressing the start button once the power button has been activated.
-    * Once clicked the game reacts by lighting down and the scoreboard showing the first round.
-
-5. Strict Slider:
+    * The user can change or create new weight values for the lifts specified and be redirected back to their workout.
+   
+7. Edit user/Selct next workout:
 Confirmed
-    * Switch the slider to ensure it changes colour.
-    * Sound also demonstrates the the Strict Mode is on.
-    * The game initializes the strict mode when the player begins the game.
+    * The user can select another workout which will display that workout once they have returned to get_user.
+    * The user ca edit their weight or name.
+    * The user can delete their profile.
 
-6. When the game is in play:
-Confirmed
-    * The pads display the sound and visual effects for the computer sequence.
-    * The pads respond to the user clicks and display the sound and visual effects for the player sequence.
-    * There is sufficient time between pad displays.
 
-4. Footer:
+8. Footer:
 Confirmed
     * Check the responsive design at each width.
 
@@ -97,9 +119,9 @@ Confirmed
 
 ## Further testing:
 
-1. Received feedback from students, friends and family who viewed the game on different devices. _ There was a problem with the sequence gap time for both playerSequence and computerSequence. This was rectified by using timing intervals._
+1. Received feedback from students, friends and family who viewed the game on different devices. _ There was a problem with redirecting to the get_user page once the user was created. This was rectified by redirecting to welcome and accessing the new user in the members area._
 2. Used Chrome Developer tools to get appropriate placing and design.
-3. The Game cannot be played on mobile and this was rectifed using a pop-up that asked the User to play on a bigger screen.
+
 
 
 
