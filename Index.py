@@ -12,8 +12,12 @@ mongo = PyMongo(app)
 
 @app.route('/')
 def welcome():
-
-    
+    if "name" in session:
+        name=session["name"] 
+        user = mongo.db.user.find_one({'name': name})
+        user_id=user['_id']
+        return redirect(url_for('get_user', user_id=user_id))
+        
     return render_template("welcome.html")
 
 
@@ -87,7 +91,7 @@ def add_user():
 def insert_user():
     user=mongo.db.user
     user.insert_one(request.form.to_dict())
-    return redirect(url_for('get_user'))
+    return redirect(url_for('welcome'))
 
 # def editUser - GET and POST
 

@@ -95,7 +95,7 @@
 </main>
 
 <!-- Footer -->
-{% if {{href:"{{url_for('work_out}}'}} %}
+{%- if request.path == "/get_user" %} 
 	<section id="footer_workout">
 		<div class="container">
 			<div class="row text-center text-xs-center text-sm-left text-md-left">	
@@ -125,7 +125,7 @@
 			</div>	
 		</div>
 	</section>
-{% End if %}
+{% endif %}
 	<!-- ./Footer -->
 
 
