@@ -41,6 +41,11 @@ main {
 
 /*input field for name on index.html*/
 
+.nav-wrapper {background-color:black}
+
+.sidenav{background-color: #FF13EF;
+font-size:30px}
+
 .dropdown {
 	text-decoration: none;
 	align-content: center;
@@ -99,36 +104,6 @@ nav_link .collapsible-header {
 	padding-left: 22px;
 }
 
-.navbar .nav-collapse {
-	position: absolute;
-	z-index: 1;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	margin: 0;
-	padding-right: 120px;
-	padding-left: 80px;
-	width: 100%;
-}
-
-.navbar.navbar-default .nav-collapse {
-	background-color: rgb(245, 12, 167) !important;
-}
-
-.navbar.navbar-inverse .nav-collapse {
-	background-color: rgb(245, 12, 167) !important;
-}
-
-.navbar .nav-collapse .navbar-form {
-	border-width: 0;
-	box-shadow: none;
-}
-
-.nav-collapse>li {
-	float: right;
-}
-
 .btn.btn-circle {
 	border-radius: 30px;
 }
@@ -137,22 +112,6 @@ nav_link .collapsible-header {
 	background-color: transparent;
 }
 
-@media screen and (max-width: 767px) {
-	.navbar .navbar-collapse .navbar-right>li:last-child {
-		padding-left: 15px;
-		padding-right: 15px;
-	}
-	.navbar .nav-collapse {
-		margin: 7.5px auto;
-		padding: 0;
-	}
-	.navbar .nav-collapse .navbar-form {
-		margin: 0;
-	}
-	.nav-collapse>li {
-		float: none;
-	}
-}
 
 
 /*Workout page*/

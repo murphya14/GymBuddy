@@ -83,7 +83,7 @@ def update_weight(user_id):
                  'singlearmreversefly': request.form.get('singlearmreversefly'),
                  'bulgariansplitsquat': request.form.get('bulgariansplitsquat'),
                  'facepull': request.form.get('facepull')
-                 'deadlift': request.form.get('deadlift')
+                
                  }})
 
         
