@@ -134,6 +134,7 @@ _Edit profile:_
 * A feature to track food intake.
 * A follow up message that congratulates the user.
 * An automatic display of the next workout as the user selects all of the complete buttons.
+* More consistent and better quality examples. 
 
 
 ## Technologies Used
