@@ -128,7 +128,7 @@ def update_user(user_id):
 @app.route('/delete_user/<user_id>', methods=['POST'])
 def delete_user(user_id):
     mongo.db.user.remove({'_id': ObjectId(user_id)})
-    return redirect(url_for('welcome'))
+    return redirect(url_for('add_user'))
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT',
